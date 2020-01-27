@@ -45,8 +45,8 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 throw new Error(responseJson.Error);
                }
                 parseMovieInfo(responseJson, query);               
-            }).catch(err => {
-                console.log("Oh the HORROR! Something went wrong :(", err);
+            }).catch((err) => {
+console.log("Oh the HORROR! Something went wrong :(", err);
                 handleErrorMessage(err);
             });
     }
@@ -62,12 +62,9 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             if(response.ok) {
                 return response.json();
             } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => {
-
-        }).catch(err => {
-            $("#error-messages").html(err);
-            handleErrorMessage(err);
-        });
+            }).then(responseJson => console.log(responseJson)).catch(err => {
+                handleErrorMessage(err);
+            });
 
     }
     function getYtId(imdbID) {
@@ -98,13 +95,30 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
         const queryString = formatTmdbQueryParams(parameters);
         const tmdbSearchURL = "https://api.themoviedb.org/3/search/movie/?"
         const similarURL = tmdbSearchURL + queryString;
-        fetch(similarURL).then(response => response.json()).then(responseJson => {
-            let results = responseJson.results;
-            let titles = results.map(item => item["title"]);
-            //for each result, display the title per the displaySimilarMovies function them in a list item
-            displaySimilarMovies(titles, maxResults)            
-        })
+
+        fetch(similarURL).then(response => {
+                if(response.ok) {
+                    return response.json();
+                } throw new Error("Oh the HORROR! Something went wrong :(")
+            }).then(responseJson => { 
+console.log(`responseJson is:`, responseJson);
+                if(responseJson.hasOwnProperty("0" || 0)) {
+                    throw new Error(responseJson.Error);
+                }
+                if(responseJson.results.includes("0" || 0)) {
+                    handleUndefined();
+                } else {
+                let results = responseJson.results;
+                let titles = results.map(item => item["title"]);
+                //for each result, display the title per the displaySimilarMovies function them in a list item
+                displaySimilarMovies(titles, maxResults)   
+                }         
+            }).catch(err => {
+console.log(`err is ${err}`)
+                handleUndefined()
+                });
     }
+
     function parseMovieInfo(responseJson, query) {
 
         let movieTitle = responseJson["Title"];
@@ -135,9 +149,14 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
 
     function displaySimilarMovies(movies, maxResults) {
         $("li").detach();
-        for(let i = 0; i < maxResults; i++) {
-            let movie = `<li class="results">${movies[i]}</li>`;
-            $("ul").append(movie);         
+        if(movies.includes("undefined || 0")) {
+            handleErrorMessage();
+        } else {
+        
+            for(let i = 0; i < maxResults; i++) {
+                let movie = `<li class="results">${movies[i]}</li>`;
+                $("ul").append(movie);         
+            }
         }
     }
 //show one movie search screen
@@ -224,16 +243,29 @@ console.log(`handleErrorMessage ran`)
             $("#error-messages").toggleClass("hidden");
             $("#search-error-message").toggleClass("hidden");
             $("#search-error-message").text(errorMessage); 
-            $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
-
+            $("button").on("click", event => {
+                event.preventDefault();
+                $("#error-messages").toggleClass("hidden")
+            });
+    }
+    function handleUndefined() {
+console.log(`handleUndefined ran`)
+        let errorMessage = `Oh the HORROR! No movie found.`;
+        $("ul").hide();
+        $("#error-messages").toggleClass("hidden");
+        $("#search-error-message").toggleClass("hidden");
+        $("#search-error-message").text(errorMessage); 
+        $("button").on("click", event => {
+            $("ul").toggleClass("hidden");
+            
+        });
     }
 
     function initApp() {
         handleOneSearch();
         handleOneSubmitButton();
         handleMultiSearch();
-        handleMultiSubmitButton()
-        handleErrorMessage(error);
+        handleMultiSubmitButton();
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
