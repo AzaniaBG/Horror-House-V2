@@ -102,14 +102,17 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Error")) {
+                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Undefined")) {
                     throw new Error(responseJson.Error);
                 }
                 let results = responseJson.results;
                 let titles = results.map(item => item["title"]);
                 //for each result, display the title per the displaySimilarMovies function them in a list item
                 displaySimilarMovies(titles, maxResults)            
-            }).catch(err => handleErrorMessage(err));
+            }).catch(err => {
+console.log(`err is ${err}`)
+                handleUndefined()
+                });
     }
 
     function parseMovieInfo(responseJson, query) {
