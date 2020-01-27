@@ -102,14 +102,21 @@ console.log("Oh the HORROR! Something went wrong :(", err);
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.hasOwnProperty("0")) {
+                if(responseJson.hasOwnProperty("0" || 0)) {
                     throw new Error(responseJson.Error);
                 }
+                if(responseJson.results.includes("0" || 0)) {
+                    handleUndefined();
+                } else {
                 let results = responseJson.results;
                 let titles = results.map(item => item["title"]);
                 //for each result, display the title per the displaySimilarMovies function them in a list item
-                displaySimilarMovies(titles, maxResults)            
-            }).catch(err => handleUndefined());
+                displaySimilarMovies(titles, maxResults)   
+                }         
+            }).catch(err => {
+console.log(`err is ${err}`)
+                handleUndefined()
+                });
     }
 
     function parseMovieInfo(responseJson, query) {
@@ -236,16 +243,21 @@ console.log(`handleErrorMessage ran`)
             $("#error-messages").toggleClass("hidden");
             $("#search-error-message").toggleClass("hidden");
             $("#search-error-message").text(errorMessage); 
-            $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
+            $("button").on("click", event => {
+                event.preventDefault();
+                $("#error-messages").toggleClass("hidden")
+            });
     }
     function handleUndefined() {
+console.log(`handleUndefined ran`)
         let errorMessage = `Oh the HORROR! No movie found.`;
         $("ul").hide();
         $("#error-messages").toggleClass("hidden");
         $("#search-error-message").toggleClass("hidden");
         $("#search-error-message").text(errorMessage); 
         $("button").on("click", event => {
-            $("#error-messages").toggleClass("hidden");
+            $("ul").toggleClass("hidden");
+            
         });
     }
 
