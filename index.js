@@ -242,13 +242,10 @@ console.log(`err is ${err}`)
     function handleErrorMessage(error) {
 console.log(`handleErrorMessage ran`)
         let errorMessage = `Oh the HORROR! ${error}`;
-            $("#error-messages").toggleClass("hidden");
-            $("#search-error-message").toggleClass("hidden");
+            $("#error-messages").show();
+            $("#search-error-message").show();
             $("#search-error-message").text(errorMessage); 
-            $("button").on("click", event => {
-                event.preventDefault();
-                $("#error-messages").toggleClass("hidden")
-            });
+            
     }
 //     function handleUndefined() {
 // console.log(`handleUndefined ran`)
