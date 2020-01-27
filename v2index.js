@@ -62,9 +62,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             if(response.ok) {
                 return response.json();
             } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => {
-
-            }).catch(err => {
+            }).then(responseJson => console.log(responseJson)).catch(err => {
                 handleErrorMessage(err);
             });
 
@@ -99,10 +97,13 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
         const similarURL = tmdbSearchURL + queryString;
 
         fetch(similarURL).then(response => {
-            if(response.ok) {
-                return response.json();
-            } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => {
+                if(response.ok) {
+                    return response.json();
+                } throw new Error("Oh the HORROR! Something went wrong :(")
+            }).then(responseJson => { 
+                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Error")) {
+                throw new Error(responseJson.Error);
+                }
             let results = responseJson.results;
             let titles = results.map(item => item["title"]);
             //for each result, display the title per the displaySimilarMovies function them in a list item
