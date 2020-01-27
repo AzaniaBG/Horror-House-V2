@@ -45,8 +45,8 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 throw new Error(responseJson.Error);
                }
                 parseMovieInfo(responseJson, query);               
-            }).catch(err => {
-                console.log("Oh the HORROR! Something went wrong :(", err);
+            }).catch((err) => {
+console.log("Oh the HORROR! Something went wrong :(", responseJson.err);
                 handleErrorMessage(err);
             });
     }
@@ -248,8 +248,8 @@ console.log(`handleErrorMessage ran`)
         handleOneSearch();
         handleOneSubmitButton();
         handleMultiSearch();
-        handleMultiSubmitButton()
-        handleErrorMessage(error);
+        handleMultiSubmitButton();
+        handleUndefined();
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
