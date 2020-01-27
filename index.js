@@ -188,6 +188,7 @@ console.log(`err is ${err}`)
     function handleOneSubmitButton() {
         $("#js-one-movie-search-button").on("click", event => {
             event.preventDefault();
+            $("#error-messages").hide();
             let searchTerm = $("#js-one-movie-search").val();
             //empty search results in order to permit new search 
             $("#js-one-movie-search").val("");
@@ -204,6 +205,7 @@ console.log(`err is ${err}`)
     function handleMultiSubmitButton() {
         $("#js-multi-search-button").on("click", event => {
             event.preventDefault();
+            $("#error-messages").hide();
             let multiSearchTerm = $("#js-similar-movies").val();
             let maxResults = $("#js-max-results").val();
             $("#js-similar-movies").val("");
@@ -248,18 +250,18 @@ console.log(`handleErrorMessage ran`)
                 $("#error-messages").toggleClass("hidden")
             });
     }
-    function handleUndefined() {
-console.log(`handleUndefined ran`)
-        let errorMessage = `Oh the HORROR! No movie found.`;
-        $("ul").hide();
-        $("#error-messages").toggleClass("hidden");
-        $("#search-error-message").toggleClass("hidden");
-        $("#search-error-message").text(errorMessage); 
-        $("button").on("click", event => {
-            $("ul").toggleClass("hidden");
+//     function handleUndefined() {
+// console.log(`handleUndefined ran`)
+//         let errorMessage = `Oh the HORROR! No movie found.`;
+//         $("ul").hide();
+//         $("#error-messages").toggleClass("hidden");
+//         $("#search-error-message").toggleClass("hidden");
+//         $("#search-error-message").text(errorMessage); 
+//         $("button").on("click", event => {
+//             $("ul").toggleClass("hidden");
             
-        });
-    }
+//         });
+//     }
 
     function initApp() {
         handleOneSearch();
