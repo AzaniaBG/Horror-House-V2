@@ -46,7 +46,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch(err => {
-                console.log("Oh the HORROR! Something went wrong :(", err);
+console.log("Oh the HORROR! Something went wrong :(", err);
                 handleErrorMessage(err);
             });
     }
@@ -102,7 +102,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Undefined")) {
+                if(responseJson.hasOwnProperty("0")) {
                     throw new Error(responseJson.Error);
                 }
                 let results = responseJson.results;
@@ -230,6 +230,7 @@ console.log(`err is ${err}`)
     // }
     function handleErrorMessage(error) {
 console.log(`handleErrorMessage ran`)
+console.log(`error message is:`, error)
         let errorMessage = `Oh the HORROR! ${error}`;
             $("#error-messages").toggleClass("hidden");
             $("#search-error-message").toggleClass("hidden");
