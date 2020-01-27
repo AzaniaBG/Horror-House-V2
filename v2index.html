@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Azania Baker-Garcia, ABG, GitHub project, API Hack Capstone. Search for horror movies and find related content.">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="images/amityvilleHouse.png">
+    <title>API Hack Wireframe</title>
+</head>
+<body role="main">
+<!--/////////////////////////////MAIN SCREEN HEADER ///////////////////////////////-->
+    
+    <header role="heading" id="main-screen-header">
+        <h1>Greetings. Welcome to the Horror House.</h1>
+        <h2>Enter if you dare.</h2>
+    </header>
+    <!--/////////////////////////////SEARCH SCREEN HEADERS ///////////////////////////////-->
+    <header role="heading" id="search-screen-header">
+        <h1>Movie Search</h1>
+        <h2></h2>
+    </header>
+    <header role="heading" id="similars-search-screen-header">
+        <h1>Similar Movies Search</h1>
+        <h2></h2>
+    </header>
+    <!--/////////////////////////////MAIN SCREEN  ///////////////////////////////-->
+    <form role="search">
+        <fieldset id="search-options">
+            <button role="button" id="js-search-one">Search for a Movie</button>
+            <button role="button"  id="js-multi-search-option">Find Similar Movies</button>
+        </fieldset>      
+    </form>
+    <!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
+
+    <!--/////////////////////////////ERROR SCREEN///////////////////////////////-->
+
+    <!--/////////////////////////////END ERROR SCREEN///////////////////////////////-->
+    <section role="alert" id="error-messages" class="hidden">
+        <h2 id="search-error-message" class="hidden">Oh the Horror!</h2>
+    </section>
+    <!--/////////////////////////////SEARCH SCREEN///////////////////////////////--> 
+
+    <form role="search" class="form search">   
+        <fieldset id="one-movie-search" class="search one-movie">
+            <label for="js-one-movie-search" class="form one-movie"><h3>Search for a Movie.</h3>
+                <input type="text" id="js-one-movie-search" class="search one-movie">
+            </label>
+            <button role="button"  id="js-one-movie-search-button" class="search one-movie">ENTER</button>
+        </fieldset>
+     
+        <fieldset id="similar-movies-search" class="search similar-movies">
+            <label for="js-similar-movies" class="search similar-movies"><h3>Find Similar Movies.</h3>
+                <input type="text" id="js-similar-movies">
+                <select id="js-max-results" name="results">
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </label>
+                <button role="button" id="js-multi-search-button" class="search similar-movies">ENTER</button>
+        </fieldset>
+    </form>
+    <!--/////////////////////////////END SEARCH SCREEN///////////////////////////////-->
+
+
+
+
+<!--///////////////////////////// (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+    
+    <section id="js-one-movie-results" class="results">
+        <div id="iFrame-player" src="#" class="results js-trailer"></div>
+        <h1 id="one-movie" class="results"></h1>
+        <section id="one-movie-description" class="results"></section>
+    </section>
+<!--/////////////////////////////END (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+
+<!--/////////////////////////////SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
+    <section id="js-similar-movie-results" class="results">
+        <header role="header" class="results">
+            <h1></h1>
+        </header>
+        <ul id="js-similar-movies-list" class="results">
+        </ul>
+    </section>
+    <!--/////////////////////////////NEW  SEARCH  SCREEN///////////////////////////////-->
+    <form id="js-one-new-search" class="js-new-search" class="hidden">
+        <fieldset class="js-new-search" class="hidden">
+            <button role="button" id="js-results-new-search-one" class="js-new-search">New Movie Search</button>
+            <button role="button"  id="js-results-new-multi-search" class="js-new-search">Find Similar Movies</button>
+        </fieldset>      
+    </form>
+    
+<!--/////////////////////////////END SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
+    <footer role="img">
+        <section id="credits">
+            <img id="tmdb-logo" alt="The Movie Data Base">
+        </section>
+    </footer>
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous">
+</script>
+
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

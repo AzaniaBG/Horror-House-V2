@@ -1,0 +1,123 @@
+
+/* body {
+    background-image: url(images/amityvilleHouse.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+} */
+input {
+    border: 5px, solid, red;
+}
+header, h1, h2, div {
+    text-align: center;
+}
+#search-options, #js-one-movie-results, #js-similar-movie-results, #one-movie-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+aside {
+    font-size: 20px;
+}
+
+button {
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+button:hover {
+    color: white;
+    background-color: red;
+}
+.hidden {
+    display: none;
+}
+/* ************************ MAIN SCREEN ****************************** */
+
+/* show two search options*/
+#one-movie-search, #similar-movies-search, #similars-search-screen-header, #js-one-new-search, #js-multi-new-search {
+    display: none;
+}
+
+#js-one-movie-results, #js-similar-movie-results {
+    
+}
+/* ************************ SEARCH ONE MOVIE SCREEN *******************************/
+#js-one-movie-results {
+    /* display: inline-block */
+}
+
+/* ************************ SEARCH SIMILAR MOVIES SCREEN    *******************************/
+#js-similar-movie-results {
+    /* display: inline-block */
+}
+
+
+
+#error-messages, #search-error-message {
+    color: red;
+}
+/* ************************ BREAKPOINTS   *******************************/
+/* ************************ MOBILE   *******************************/
+@media only screen and (max-width: 420px) {
+    aside {
+        flex-wrap: wrap;
+        width: 75%;
+        justify-content: space-around;
+        justify-content: space-evenly;
+    }
+
+}
+/* ************************ TABLET   *******************************/
+@media only screen and (min-width: 420px) {
+    aside {
+        flex-wrap: wrap;
+        width: 75%;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        flex-shrink: 2;
+    }
+
+}
+/* ************************ LAPTOP   *******************************/
+@media only screen and (min-width: 600px) {
+    aside {
+        flex-wrap: wrap;
+        width: 75%;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        flex-shrink: 2;
+    }
+    body {
+        background-image: url(images/amityvilleHouse.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
+
+}
+/* ************************ DESKTOP   *******************************/
+@media only screen and (min-width: 992px) {
+    fieldset {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+    }
+    #search-options, #js-one-movie-results {
+        
+    }
+    #js-similar-movie-results, #one-movie-description {
+
+    }
+
+    aside {
+        flex-wrap: wrap;
+        width: 75%;
+        justify-content: space-around;
+        justify-content: space-evenly;
+        flex-shrink: 2;
+    }
+
+}
