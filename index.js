@@ -238,7 +238,10 @@ console.log(`handleErrorMessage ran`)
         $("#error-messages").toggleClass("hidden");
         $("#search-error-message").toggleClass("hidden");
         $("#search-error-message").text(errorMessage); 
-        $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
+        $("button").on("click", event => {
+            $("#error-messages").toggleClass("hidden");
+            $("ul").toggleClass("hidden");
+        });
     }
 
     function initApp() {
