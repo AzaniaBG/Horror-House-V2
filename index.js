@@ -62,12 +62,9 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             if(response.ok) {
                 return response.json();
             } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => {
-
-        }).catch(err => {
-            $("#error-messages").html(err);
-            handleErrorMessage(err);
-        });
+            }).then(responseJson => console.log(responseJson)).catch(err => {
+                handleErrorMessage(err);
+            });
 
     }
     function getYtId(imdbID) {
@@ -98,13 +95,23 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
         const queryString = formatTmdbQueryParams(parameters);
         const tmdbSearchURL = "https://api.themoviedb.org/3/search/movie/?"
         const similarURL = tmdbSearchURL + queryString;
-        fetch(similarURL).then(response => response.json()).then(responseJson => {
-            let results = responseJson.results;
-            let titles = results.map(item => item["title"]);
-            //for each result, display the title per the displaySimilarMovies function them in a list item
-            displaySimilarMovies(titles, maxResults)            
-        })
+
+        fetch(similarURL).then(response => {
+                if(response.ok) {
+                    return response.json();
+                } throw new Error("Oh the HORROR! Something went wrong :(")
+            }).then(responseJson => { 
+console.log(`responseJson is:`, responseJson);
+                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Error")) {
+                    throw new Error(responseJson.Error);
+                }
+                let results = responseJson.results;
+                let titles = results.map(item => item["title"]);
+                //for each result, display the title per the displaySimilarMovies function them in a list item
+                displaySimilarMovies(titles, maxResults)            
+            }).catch(err => handleErrorMessage(err));
     }
+
     function parseMovieInfo(responseJson, query) {
 
         let movieTitle = responseJson["Title"];
@@ -225,7 +232,13 @@ console.log(`handleErrorMessage ran`)
             $("#search-error-message").toggleClass("hidden");
             $("#search-error-message").text(errorMessage); 
             $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
-
+    }
+    function handleUndefined() {
+        let errorMessage = `Oh the HORROR! ${error}`;
+        $("#error-messages").toggleClass("hidden");
+        $("#search-error-message").toggleClass("hidden");
+        $("#search-error-message").text(errorMessage); 
+        $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
     }
 
     function initApp() {
