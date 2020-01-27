@@ -64,9 +64,9 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => {
 
-        }).catch(err => {
-            handleErrorMessage(err);
-        });
+            }).catch(err => {
+                handleErrorMessage(err);
+            });
 
     }
     function getYtId(imdbID) {
@@ -97,12 +97,17 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
         const queryString = formatTmdbQueryParams(parameters);
         const tmdbSearchURL = "https://api.themoviedb.org/3/search/movie/?"
         const similarURL = tmdbSearchURL + queryString;
-        fetch(similarURL).then(response => response.json()).then(responseJson => {
+
+        fetch(similarURL).then(response => {
+            if(response.ok) {
+                return response.json();
+            } throw new Error("Oh the HORROR! Something went wrong :(")
+            }).then(responseJson => {
             let results = responseJson.results;
             let titles = results.map(item => item["title"]);
             //for each result, display the title per the displaySimilarMovies function them in a list item
             displaySimilarMovies(titles, maxResults)            
-        })
+        }).catch(err => handleErrorMessage(err));
     }
     function parseMovieInfo(responseJson, query) {
 
