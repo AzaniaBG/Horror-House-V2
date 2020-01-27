@@ -5,7 +5,7 @@ const omdbKey = "cb95d063"
 const tmdbKey = "b81d09aa5f188c95ba4dc2e4336459b4"
 
 //save API base URLs to modify according to search
-const omdbSearchURL = "http://www.omdbapi.com/?"//use to get movie ID
+const omdbSearchURL = "https://www.omdbapi.com/?"//use to get movie ID
 const tmdbSearchURL = "https://api.themoviedb.org/3/movie/"//use for ratings, etc.
 //config for ID: https://api.themoviedb.org/3/configuration?api_key=b81d09aa5f188c95ba4dc2e4336459b4
 const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
