@@ -46,7 +46,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
-console.log("Oh the HORROR! Something went wrong :(", responseJson.err);
+console.log("Oh the HORROR! Something went wrong :(", err);
                 handleErrorMessage(err);
             });
     }
@@ -102,14 +102,14 @@ console.log("Oh the HORROR! Something went wrong :(", responseJson.err);
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Error")) {
+                if(responseJson.hasOwnProperty("0")) {
                     throw new Error(responseJson.Error);
                 }
                 let results = responseJson.results;
                 let titles = results.map(item => item["title"]);
                 //for each result, display the title per the displaySimilarMovies function them in a list item
                 displaySimilarMovies(titles, maxResults)            
-            }).catch(err => handleErrorMessage(err));
+            }).catch(err => handleUndefined());
     }
 
     function parseMovieInfo(responseJson, query) {
@@ -142,9 +142,14 @@ console.log(`responseJson is:`, responseJson);
 
     function displaySimilarMovies(movies, maxResults) {
         $("li").detach();
-        for(let i = 0; i < maxResults; i++) {
-            let movie = `<li class="results">${movies[i]}</li>`;
-            $("ul").append(movie);         
+        if(movies.includes("undefined || 0")) {
+            handleErrorMessage();
+        } else {
+        
+            for(let i = 0; i < maxResults; i++) {
+                let movie = `<li class="results">${movies[i]}</li>`;
+                $("ul").append(movie);         
+            }
         }
     }
 //show one movie search screen
@@ -234,13 +239,13 @@ console.log(`handleErrorMessage ran`)
             $("button").on("click", event => $("#error-messages").toggleClass("hidden"));
     }
     function handleUndefined() {
-        let errorMessage = `Oh the HORROR! ${error}`;
+        let errorMessage = `Oh the HORROR! No movie found.`;
+        $("ul").hide();
         $("#error-messages").toggleClass("hidden");
         $("#search-error-message").toggleClass("hidden");
         $("#search-error-message").text(errorMessage); 
         $("button").on("click", event => {
             $("#error-messages").toggleClass("hidden");
-            $("ul").toggleClass("hidden");
         });
     }
 
@@ -249,7 +254,6 @@ console.log(`handleErrorMessage ran`)
         handleOneSubmitButton();
         handleMultiSearch();
         handleMultiSubmitButton();
-        handleUndefined();
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
