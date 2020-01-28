@@ -247,18 +247,18 @@ console.log(`handleErrorMessage ran`)
             $("#search-error-message").text(errorMessage); 
             
     }
-//     function handleUndefined() {
-// console.log(`handleUndefined ran`)
-//         let errorMessage = `Oh the HORROR! No movie found.`;
-//         $("ul").hide();
-//         $("#error-messages").toggleClass("hidden");
-//         $("#search-error-message").toggleClass("hidden");
-//         $("#search-error-message").text(errorMessage); 
-//         $("button").on("click", event => {
-//             $("ul").toggleClass("hidden");
+    function handleUndefined() {
+console.log(`handleUndefined ran`)
+        let errorMessage = `Oh the HORROR! No movie found.`;
+        $("ul").hide();
+        $("#error-messages").show();
+        $("#search-error-message").show();
+        $("#search-error-message").text(errorMessage); 
+        $("button").on("click", event => {
+            $("ul").toggleClass("hidden");
             
-//         });
-//     }
+        });
+    }
 
     function initApp() {
         handleOneSearch();
