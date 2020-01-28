@@ -206,6 +206,7 @@ console.log(`err is ${err}`)
             let multiSearchTerm = $("#js-similar-movies").val();
             let maxResults = $("#js-max-results").val();
             $("#js-similar-movies").val("");
+            $("#js-max-results").val("");
             getSimilarMovies(multiSearchTerm, maxResults);
             $("#main-screen-header").hide();
             $("#one-movie-search").hide();
