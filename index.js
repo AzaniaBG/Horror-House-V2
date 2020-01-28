@@ -102,9 +102,6 @@ console.log("Oh the HORROR! Something went wrong :(", err);
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.hasOwnProperty("0" || 0)) {
-                    throw new Error(responseJson.Error);
-                }
                 if(responseJson.results.includes("0" || 0)) {
                     handleUndefined();
                 } else {
@@ -215,6 +212,7 @@ console.log(`err is ${err}`)
             $("#js-one-movie-results").hide(); 
             //$("#similar-movies-search").hide(); 
             $("#js-similar-movie-results").show();
+            $("ul").show();
             //$("#js-one-new-search").show();
             //$("#js-multi-new-search").show();
         })
@@ -254,10 +252,6 @@ console.log(`handleUndefined ran`)
         $("#error-messages").show();
         $("#search-error-message").show();
         $("#search-error-message").text(errorMessage); 
-        $("button").on("click", event => {
-            $("ul").toggleClass("hidden");
-            
-        });
     }
 
     function initApp() {
