@@ -89,7 +89,7 @@ button:hover {
         flex-shrink: 2;
     }
     body {
-        background-image: url(images/amityvilleHouse.png);
+        /* background-image: url(images/amityvilleHouse.png); */
         background-repeat: no-repeat;
         background-position: center;
         background-size: 50%;
