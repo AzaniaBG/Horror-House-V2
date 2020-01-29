@@ -112,7 +112,7 @@ console.log(`responseJson is:`, responseJson);
                 }         
             }).catch(err => {
 console.log(`err is ${err}`)
-                handleUndefined()
+                $("#search-error-message")
                 });
     }
 
