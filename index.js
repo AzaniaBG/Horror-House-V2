@@ -102,7 +102,7 @@ console.log("Oh the HORROR! Something went wrong :(", err);
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
 console.log(`responseJson is:`, responseJson);
-                if(responseJson.results.includes("0" || 0)) {
+                if(responseJson.results.length === 0) {
                     handleUndefined();
                 } else {
                 let results = responseJson.results;
@@ -203,10 +203,11 @@ console.log(`err is ${err}`)
         $("#js-multi-search-button").on("click", event => {
             event.preventDefault();
             $("#error-messages").hide();
+            $("#search-error-message").hide();
             let multiSearchTerm = $("#js-similar-movies").val();
             let maxResults = $("#js-max-results").val();
             $("#js-similar-movies").val("");
-            $("#js-max-results").val("");
+            $("#js-max-results").val("3");
             getSimilarMovies(multiSearchTerm, maxResults);
             $("#main-screen-header").hide();
             $("#one-movie-search").hide();
