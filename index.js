@@ -6,7 +6,7 @@ const tmdbKey = "b81d09aa5f188c95ba4dc2e4336459b4"
 
 //save API base URLs to modify according to search
 const omdbSearchURL = "https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?"//use to get movie ID
-const tmdbSearchURL = "https://api.themoviedb.org/3/movie/"//use for ratings, etc.
+const tmdbSearchURL = "https://cors-anywhere.herokuapp.com/http://api.themoviedb.org/3/movie/"//use for ratings, etc.
 //config for ID: https://api.themoviedb.org/3/configuration?api_key=b81d09aa5f188c95ba4dc2e4336459b4
 const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
 
@@ -57,7 +57,7 @@ console.log("Oh the HORROR! Something went wrong :(", err);
             i: id,
         }
         let queryIdString = formatOmdbQueryParams(params);
-        let omdbIdSearchURL = `http://www.omdbapi.com/?` + queryIdString;
+        let omdbIdSearchURL = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?` + queryIdString;
         fetch(omdbIdSearchURL).then(response => {
             if(response.ok) {
                 return response.json();
