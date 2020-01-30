@@ -93,7 +93,7 @@ console.log("Oh the HORROR! Something went wrong :(", err);
             page: 1,
         }
         const queryString = formatTmdbQueryParams(parameters);
-        const tmdbSearchURL = "https://cors-anywhere.herokuapp.com/https://api.themoviedb.org/3/search/movie/?"
+        const tmdbSearchURL = "https://cors-anywhere.herokuapp.com/http://api.themoviedb.org/3/search/movie/?"
         const similarURL = tmdbSearchURL + queryString;
 
         fetch(similarURL).then(response => {
