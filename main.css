@@ -5,9 +5,23 @@
     background-position: center;
     background-size: cover;
 } */
+#credits {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    
+}
+#tmdb-credit {
+    flex-shrink: 3;
+    flex-grow: 0;
+    flex-basis: 5%;
+}
 #tmdb-logo {
+    
     width: 25px;
-    height: auto;
+    height: 25px;
+    flex-shrink: 0;
+    
 }
 input {
     border: 5px, solid, red;
