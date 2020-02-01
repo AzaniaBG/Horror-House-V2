@@ -29,8 +29,8 @@
     <!--/////////////////////////////MAIN SCREEN  ///////////////////////////////-->
     <form role="search">
         <fieldset id="search-options">
-            <button role="button" id="js-search-one">Search for a Movie</button>
-            <button role="button"  id="js-multi-search-option">Find Similar Movies</button>
+            <button role="button" id="js-search-one" class="search">Search for a Movie</button>
+            <button role="button"  id="js-multi-search-option" class="search">Find Similar Movies</button>
         </fieldset>      
     </form>
     <!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
@@ -45,7 +45,7 @@
 
     <form role="search" class="form search">   
         <fieldset id="one-movie-search" class="search one-movie">
-            <label for="js-one-movie-search" class="form one-movie"><h3>Search for a Movie.</h3>
+            <label for="js-one-movie-search" class="form search one-movie"><h3>Search for a Movie.</h3>
                 <input type="text" id="js-one-movie-search" class="search one-movie">
             </label>
             <button role="button"  id="js-one-movie-search-button" class="search one-movie">ENTER</button>
@@ -53,8 +53,8 @@
      
         <fieldset id="similar-movies-search" class="search similar-movies">
             <label for="js-similar-movies" class="search similar-movies"><h3>Find Similar Movies.</h3>
-                <input type="text" id="js-similar-movies">
-                <select id="js-max-results" name="results">
+                <input type="text" id="js-similar-movies" class="search similar-movies">
+                <select id="js-max-results" name="results" class="search">
                     <option value="3">3</option>
                     <option value="5">5</option>
                     <option value="10">10</option>

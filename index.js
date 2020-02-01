@@ -248,7 +248,6 @@ console.log(`handleErrorMessage ran`)
             
     }
     function handleUndefined() {
-console.log(`handleUndefined ran`)
         let errorMessage = `Oh the HORROR! No movie found.`;
         $("ul").hide();
         $("#error-messages").show();
@@ -256,11 +255,23 @@ console.log(`handleUndefined ran`)
         $("#search-error-message").text(errorMessage); 
     }
 
+    function handleHomeButton() {
+        $("#js-results-home").on("click", event => {
+            event.preventDefault();
+            $(".results").hide();
+            $("#error-messages").hide();
+            $(".similar-movies").show();
+            $(".one-movie").show();
+           
+        })
+    }
+
     function initApp() {
         handleOneSearch();
         handleOneSubmitButton();
         handleMultiSearch();
         handleMultiSubmitButton();
+        handleHomeButton();
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
