@@ -5,10 +5,16 @@
     background-position: center;
     background-size: cover;
 } */
+* {
+    border: thin darkblue solid;
+}
 #credits {
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
+    flex-wrap: nowrap;
     font-size: 10px;
+
     
 }
 #tmdb-credit {
