@@ -308,7 +308,7 @@ console.log(`handleErrorMessage ran`)
 
     function initApp() {
         handleSingleSearchSubmit();
-        handleMultiSubmitButton();
+        handleMultiSearchSubmit();
         handleHomeButton();
         handleHomeScreen();
     }
