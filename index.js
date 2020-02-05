@@ -231,7 +231,7 @@ function handleMultiSearchSubmit() {
 // }
 
 
-// function handleMultiSubmitButton() {
+// function handleMultiSubmitButton() {                 DELETE
 //     $("#js-multi-search-button").on("click", event => {
 //         event.preventDefault();
 //         $("#error-messages").hide();
@@ -298,15 +298,19 @@ console.log(`handleErrorMessage ran`)
            
         })
     }
-///////////////////////////////////////////////// NEW CODE BELOW //////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+    function handleHomeScreen() {
+        $("#main-screen-header").show();
+        $("#search-screen-headers").hide();
+        
+
+    }
+
     function initApp() {
         handleSingleSearchSubmit();
-        handleOneSubmitButton();
-        handleMultiSearch();
         handleMultiSubmitButton();
         handleHomeButton();
+        handleHomeScreen();
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
