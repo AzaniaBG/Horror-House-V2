@@ -193,6 +193,7 @@ function handleMultiSearchSubmit() {
         getSimilarMovies(multiMovieSearchValue, maxResults);
         $("#js-multi-movie-search").val("");
         $("#js-max-results").val("");
+        $("#main-screen-header").hide();
         $("#single-search-screen-header").show();
         $("#results-screen").show();
         $("#js-similar-movie-results").show();
@@ -229,26 +230,28 @@ function handleMultiSearchSubmit() {
 //     });
 // }
 
-    function handleMultiSubmitButton() {
-        $("#js-multi-search-button").on("click", event => {
-            event.preventDefault();
-            $("#error-messages").hide();
-            $("#search-error-message").hide();
-            let multiSearchTerm = $("#js-similar-movies").val();
-            let maxResults = $("#js-max-results").val();
-            $("#js-similar-movies").val("");
-            $("#js-max-results").val("3");
-            getSimilarMovies(multiSearchTerm, maxResults);
-            $("#main-screen-header").hide();
-            $("#one-movie-search").hide();
-            $("#js-one-movie-results").hide(); 
-            //$("#similar-movies-search").hide(); 
-            $("#js-similar-movie-results").show();
-            $("ul").show();
-            //$("#js-new-search").show();
-            //$("#js-multi-new-search").show();
-        })
-    }
+
+// function handleMultiSubmitButton() {
+//     $("#js-multi-search-button").on("click", event => {
+//         event.preventDefault();
+//         $("#error-messages").hide();
+//         $("#search-error-message").hide();
+//         let multiSearchTerm = $("#js-similar-movies").val();
+//         let maxResults = $("#js-max-results").val();
+//         $("#js-similar-movies").val("");
+//         $("#js-max-results").val("3");
+//         getSimilarMovies(multiSearchTerm, maxResults);
+//         $("#main-screen-header").hide();
+//         $("#one-movie-search").hide();
+//         $("#js-one-movie-results").hide(); 
+//         //$("#similar-movies-search").hide(); 
+//         $("#js-similar-movie-results").show();
+//         $("ul").show();
+//         //$("#js-new-search").show();
+//         //$("#js-multi-new-search").show();
+//     })
+// }
+
     // function handleNewSearchOne() {
     //     $("#js-new-search-one").on("submit", event => {
     //         event.preventDefault();
