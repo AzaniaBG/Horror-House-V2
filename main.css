@@ -8,27 +8,33 @@
 * {
     border: thin darkblue solid;
 }
+#home-search-screen {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+
+}
 #credits {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: nowrap;
     font-size: 10px;
 
     
 }
 #tmdb-credit {
-    flex-shrink: 3;
-    flex-grow: 0;
-    flex-basis: 5%;
+    flex: 0 3 5%;
+    
 }
 #tmdb-logo {
     
-    width: 25px;
-    height: 25px;
-    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    flex: 0 1 5%;
     
 }
+
 input {
     border: 5px, solid, red;
 }
@@ -117,6 +123,28 @@ button:hover {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 50%;
+    }
+
+    #credits {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        font-size: 10px;
+    
+        
+    }
+    #tmdb-credit {
+        /* flex-shrink: 3;
+        flex-grow: 0;
+        flex-basis: 5%; */
+    }
+    #tmdb-logo {
+        
+        /* width: 25px;
+        height: 25px;
+        flex-shrink: 0; */
+        
     }
 
 }
