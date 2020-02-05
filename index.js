@@ -156,19 +156,31 @@ console.log(`err is ${err}`)
             }
         }
     }
-//show one movie search screen
-    function handleOneSearch() {
-            $("#single-search-screen-header").hide();
-        $("#js-search-one").on("click", event => {
+//previously handleOneSearch()
+    function handleSingleSearchSubmit() {
+        $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
-            $("#main-screen-header").hide();
-            $("#multi-search-screen-header").hide();
-            $("#js-multi-search-option").hide();
-            $("#js-search-one").hide();
-            $("#one-movie-search").show();
-            $("#single-search-screen-header").show();
-        });
+            let singleSearchValue = $("#js-single-movie-search").val();
+            getOmdbMovieInfo(singleSearchValue, 10);
+            $("#js-single-movie-search").val("");
+            $("#multi-movie-search").hide();
+        })
+
     }
+
+    // function handleOneSearch() {                             DELETE 
+    //         $("#single-search-screen-header").hide();
+    //     $("#js-search-one").on("click", event => {
+    //         event.preventDefault();
+    //         $("#main-screen-header").hide();
+    //         $("#multi-search-screen-header").hide();
+    //         $("#js-multi-search-option").hide();
+    //         $("#js-search-one").hide();
+    //         $("#one-movie-search").show();
+    //         $("#single-search-screen-header").show();
+    //     });
+    // }
+
     //show similar movies search screen
     function handleMultiSearch() {
         $("#js-multi-search-option").on("click", event => {
