@@ -158,16 +158,19 @@ console.log(`err is ${err}`)
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
+        $("#main-screen-header").hide()
         $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
             let singleSearchValue = $("#js-single-movie-search").val();
             getOmdbMovieInfo(singleSearchValue, 10);
             $("#js-single-movie-search").val("");
             $("#multi-movie-search").hide();
+            $("#single-search-screen-header").show();
+            $("#results-screen").show();
+            $("#js-one-movie-results").show();
         })
 
     }
-
     // function handleOneSearch() {                             DELETE 
     //         $("#single-search-screen-header").hide();
     //     $("#js-search-one").on("click", event => {
@@ -281,7 +284,7 @@ console.log(`handleErrorMessage ran`)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
     function initApp() {
-        handleOneSearch();
+        handleSingleSearchSubmit();
         handleOneSubmitButton();
         handleMultiSearch();
         handleMultiSubmitButton();
