@@ -158,9 +158,10 @@ console.log(`err is ${err}`)
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
-        
+              
         $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
+            $("#error-messages").hide();
             handleResultsScreen();
             let singleSearchValue = $("#js-single-movie-search").val();
             getOmdbMovieInfo(singleSearchValue, 10);
@@ -170,34 +171,26 @@ console.log(`err is ${err}`)
             // $("#results-screen").show();
             $("#js-one-movie-results").show();
         })
-
     }
-// function handleOneSearch() {                             DELETE 
-//         $("#single-search-screen-header").hide();
-//     $("#js-search-one").on("click", event => {
-//         event.preventDefault();
-//         $("#main-screen-header").hide();
-//         $("#multi-search-screen-header").hide();
-//         $("#js-multi-search-option").hide();
-//         $("#js-search-one").hide();
-//         $("#one-movie-search").show();
-//         $("#single-search-screen-header").show();
-//     });
-// }
 
 //previously handleMultiSearch()   
 function handleMultiSearchSubmit() {
     $("#js-multi-movie-search-submit").on("click", event => {
         event.preventDefault();
+        $("#error-messages").hide();
+        handleResultsScreen();
         let multiMovieSearchValue = $("#js-multi-movie-search").val();
         let maxResults = $("#js-max-results").val();
         getSimilarMovies(multiMovieSearchValue, maxResults);
         $("#js-multi-movie-search").val("");
-        $("#js-max-results").val("");
+        $("#js-max-results").val(3);
         $("#main-screen-header").hide();
-        $("#single-search-screen-header").show();
-        $("#results-screen").show();
+        $("#multi-search-screen-header").show();
+        // $("#search-screen-headers").show();
+        // $("#single-search-screen-header").show();
+        // $("#results-screen").show();
         $("#js-similar-movie-results").show();
+        $("#js-similar-movies-list").show();
 
     })
     
@@ -207,12 +200,12 @@ function handleMultiSearchSubmit() {
 console.log(`error is ${error}`)
         let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
+            $("#credits").hide();
             $("#search-error-message").text(errorMessage); 
             $("#error-messages").show();
-            $("#search-error-message").show();
-            
-            
+            $("#search-error-message").show();            
     }
+
     function handleUndefined() {
         let errorMessage = `Oh the HORROR! No movie found.`;
         $("ul").hide();
@@ -229,6 +222,7 @@ console.log(`error is ${error}`)
     }
 
     function handleHomeScreen() {
+        $("#error-messages").hide();
         $("#results-screen").hide();
         $("#search-screen-headers").hide();
         $("#js-results-home").hide();
