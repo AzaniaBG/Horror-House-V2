@@ -158,15 +158,16 @@ console.log(`err is ${err}`)
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
-        $("#main-screen-header").hide()
+        
         $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
+            handleResultsScreen();
             let singleSearchValue = $("#js-single-movie-search").val();
             getOmdbMovieInfo(singleSearchValue, 10);
             $("#js-single-movie-search").val("");
             $("#multi-movie-search").hide();
             $("#single-search-screen-header").show();
-            $("#results-screen").show();
+            // $("#results-screen").show();
             $("#js-one-movie-results").show();
         })
 
@@ -223,21 +224,21 @@ console.log(`error is ${error}`)
     function handleHomeButton() {
         $("#js-results-home").on("click", event => {
             event.preventDefault();
-            $(".results").hide();
-            $("#error-messages").hide();
-            $(".similar-movies").show();
-            $(".one-movie").show();
-           
+            handleHomeScreen();
         })
     }
 
     function handleHomeScreen() {
-        $("#main-screen-header").show();
+        $("#results-screen").hide();
         $("#search-screen-headers").hide();
         $("#js-results-home").hide();
         $("#credits").hide();
+        $("#main-screen-header").show();
+        $("#home-search-screen").show();
+        $("#multi-movie-search").show();
     }
     function handleResultsScreen() {
+        $("#main-screen-header").hide()
         $("#results-screen").show();
         $("#credits").show();
         $("#search-screen-headers").show();
