@@ -7,6 +7,7 @@
     <meta name="description" content="Azania Baker-Garcia, ABG, GitHub project, API Hack Capstone. Search for horror movies and find related content.">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="main.css">
+    <link type="" src="https://media1.popsugar-assets.com/files/thumbor/LuOCuexyRgXB2T5lXnXQFabV1Kg/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/09/18/916/n/41541398/tmp_KLYZIr_87d464e19b356d6c_MCDAMHO_EC035.jpg">
     <!-- <link rel="stylesheet" href="images/amityvilleHouse.png"> -->
     <title>API Hack Wireframe</title>
 </head>
@@ -36,7 +37,7 @@
             <label for="js-single-movie-search" class="search one-movie">Search for a Movie.
                 <input type="text" id="js-single-movie-search" class="search one-movie">
             </label>
-            <button role="button"  id="js-single-movie-search-submit" class="search one-movie">ENTER</button>
+            <button id="js-single-movie-search-submit" class="search one-movie">ENTER</button>
         </fieldset>
 
         <fieldset id="multi-movie-search" class="search multi-movie">
@@ -51,7 +52,7 @@
                 <option value="50">50</option>
                 <option value="100">100</option>
             </select>                
-            <button role="button" id="js-multi-movie-search-submit" class="search similar-movies">ENTER</button>
+            <button id="js-multi-movie-search-submit" class="search similar-movies">ENTER</button>
         </fieldset>
 
     </form>
@@ -78,8 +79,8 @@
         <!--/////////////////////////////NEW  SEARCH  SCREEN///////////////////////////////-->
         <form role="search" id="js-new-search" class="js-new-search hidden">
             <fieldset class="js-new-search hidden">
-                <button role="button" id="js-results-new-search-one" class="js-new-search">New Movie Search</button>
-                <button role="button"  id="js-results-new-multi-search" class="js-new-search">Find Similar Movies</button>
+                <button id="js-results-new-search-one" class="js-new-search">New Movie Search</button>
+                <button id="js-results-new-multi-search" class="js-new-search">Find Similar Movies</button>
             </fieldset>      
         </form>
     </section>
@@ -87,7 +88,7 @@
 <!--/////////////////////////////END SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
     <footer>
         <section id="home">
-            <button role="button" id="js-results-home">Horror-Home</button>
+            <button id="js-results-home">Horror-Home</button>
         </section>
         <section id="credits">
             <p id="tmdb-credit">TMDb used for movie searches</p>
