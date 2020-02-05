@@ -46,7 +46,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
-console.log("err is", err, typeof);
+console.log("err is", err);
                 handleErrorMessage(err);
             });
     }
@@ -158,15 +158,16 @@ console.log(`err is ${err}`)
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
-        $("#main-screen-header").hide()
+        
         $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
+            handleResultsScreen();
             let singleSearchValue = $("#js-single-movie-search").val();
             getOmdbMovieInfo(singleSearchValue, 10);
             $("#js-single-movie-search").val("");
             $("#multi-movie-search").hide();
             $("#single-search-screen-header").show();
-            $("#results-screen").show();
+            // $("#results-screen").show();
             $("#js-one-movie-results").show();
         })
 
@@ -204,10 +205,12 @@ function handleMultiSearchSubmit() {
 
     function handleErrorMessage(error) {
 console.log(`error is ${error}`)
-        let errorMessage = `Oh the HORROR! ${error}`;
+        let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
+            $("#main-screen-header").hide();
+            $("#search-error-message").text(errorMessage); 
             $("#error-messages").show();
             $("#search-error-message").show();
-            $("#search-error-message").text(errorMessage); 
+            
             
     }
     function handleUndefined() {
@@ -221,21 +224,21 @@ console.log(`error is ${error}`)
     function handleHomeButton() {
         $("#js-results-home").on("click", event => {
             event.preventDefault();
-            $(".results").hide();
-            $("#error-messages").hide();
-            $(".similar-movies").show();
-            $(".one-movie").show();
-           
+            handleHomeScreen();
         })
     }
 
     function handleHomeScreen() {
-        $("#main-screen-header").show();
+        $("#results-screen").hide();
         $("#search-screen-headers").hide();
         $("#js-results-home").hide();
         $("#credits").hide();
+        $("#main-screen-header").show();
+        $("#home-search-screen").show();
+        $("#multi-movie-search").show();
     }
     function handleResultsScreen() {
+        $("#main-screen-header").hide()
         $("#results-screen").show();
         $("#credits").show();
         $("#search-screen-headers").show();
