@@ -158,7 +158,7 @@ console.log(`err is ${err}`)
     }
 //show one movie search screen
     function handleOneSearch() {
-            $("#search-screen-header").hide();
+            $("#single-search-screen-header").hide();
         $("#js-search-one").on("click", event => {
             event.preventDefault();
             $("#main-screen-header").hide();
@@ -166,7 +166,7 @@ console.log(`err is ${err}`)
             $("#js-multi-search-option").hide();
             $("#js-search-one").hide();
             $("#one-movie-search").show();
-            $("#search-screen-header").show();
+            $("#single-search-screen-header").show();
         });
     }
     //show similar movies search screen
@@ -192,7 +192,7 @@ console.log(`err is ${err}`)
             getOmdbMovieInfo(searchTerm, 10);
             // $("#main-screen-header").hide();
             $("#similar-movies-search").hide();
-            //$("#search-screen-header").hide();
+            //$("#single-search-screen-header").hide();
             //$("#one-movie-search").hide();
             $("#js-one-movie-results").show();
             //$("#js-new-search").show();
