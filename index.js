@@ -46,7 +46,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
-console.log("err is", err, typeof);
+console.log("err is", err);
                 handleErrorMessage(err);
             });
     }
@@ -204,10 +204,12 @@ function handleMultiSearchSubmit() {
 
     function handleErrorMessage(error) {
 console.log(`error is ${error}`)
-        let errorMessage = `Oh the HORROR! ${error}`;
+        let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
+            $("#main-screen-header").hide();
+            $("#search-error-message").text(errorMessage); 
             $("#error-messages").show();
             $("#search-error-message").show();
-            $("#search-error-message").text(errorMessage); 
+            
             
     }
     function handleUndefined() {
