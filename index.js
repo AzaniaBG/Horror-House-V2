@@ -184,18 +184,33 @@ console.log(`err is ${err}`)
 //     });
 // }
 
-    //show similar movies search screen
-    function handleMultiSearch() {
-        $("#js-multi-search-option").on("click", event => {
-            event.preventDefault();    
-            $("#main-screen-header").hide();
-            $("#js-search-one").hide();
-            $("#js-multi-search-option").hide();
-            $("#multi-search-screen-header").show();
-            $("#js-multi-search-button").show();
-            $("#similar-movies-search").show();
-        });
-    }
+//previously handleMultiSearch()   
+function handleMultiSearchSubmit() {
+    $("#js-multi-movie-search-submit").on("click", event => {
+        event.preventDefault();
+        let multiMovieSearchValue = $("#js-multi-movie-search").val();
+        let maxResults = $("#js-max-results").val();
+        getSimilarMovies(multiMovieSearchValue, maxResults);
+        $("#js-multi-movie-search").val("");
+        $("#js-max-results").val("");
+        $("#single-search-screen-header").show();
+        $("#results-screen").show();
+        $("#js-similar-movie-results").show();
+
+    })
+    
+}
+// function handleMultiSearch() {                        DELETE
+//     $("#js-multi-search-option").on("click", event => {
+//         event.preventDefault();    
+//         $("#main-screen-header").hide();
+//         $("#js-search-one").hide();
+//         $("#js-multi-search-option").hide();
+//         $("#multi-search-screen-header").show();
+//         $("#js-multi-search-button").show();
+//         $("#similar-movies-search").show();
+//     });
+// }
     
 // function handleOneSubmitButton() {                       DELETE
 //     $("#js-one-movie-search-button").on("click", event => {
