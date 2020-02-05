@@ -11,23 +11,18 @@
     <title>API Hack Wireframe</title>
 </head>
 <body >
-<!--/////////////////////////////MAIN SCREEN HEADER ///////////////////////////////-->
+
     
     <header id="main-screen-header">
         <h1 role="heading" aria-level="1">Greetings. Welcome to the Horror House.</h1>
         <h2 role="heading" aria-level="2">Enter if you dare.</h2>
     </header>
     <!--/////////////////////////////SEARCH SCREEN HEADERS ///////////////////////////////-->
-    <header id="single-search-screen-header">
-        <h1 role="heading">Movie Search</h1>     
+    <header id="search-screen-headers" class="search-screen-headers">
+        <h1 role="heading" id="single-search-screen-header" class="search-screen-headers">Movie Search</h1>     
+        <h1 role="heading" id="multi-search-screen-header" class="search-screen-headers">Similar Movies Search</h1> 
     </header>
-
-    <header id="multi-search-screen-header">
-        <h1 role="heading">Similar Movies Search</h1>    
-    </header>
-    <!--/////////////////////////////MAIN SCREEN  ///////////////////////////////-->
     
-    <!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
 
     <!--/////////////////////////////ERROR SCREEN///////////////////////////////-->
 
@@ -35,7 +30,7 @@
     <section role="alert" id="error-messages" class="hidden">
         <h2 id="search-error-message" class="hidden">Oh the Horror!</h2>
     </section>
-    <!--/////////////////////////////SEARCH SCREEN///////////////////////////////--> 
+    <!--/////////////////////////////MAIN SCREEN HEADER ///////////////////////////////-->
     <form role="search" id="home-search-screen" class="search one-movie">
         <fieldset id="single-movie-search">
             <label for="js-single-movie-search" class="search one-movie">Search for a Movie.
@@ -60,17 +55,18 @@
         </fieldset>
 
     </form>
-    <!--/////////////////////////////END SEARCH SCREEN///////////////////////////////-->
+    <!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
 
-
-<!--///////////////////////////// (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+<!--/////////////////////////////MAIN SCREEN  ///////////////////////////////-->
     <section id="results-screen">
         <section id="js-one-movie-results" class="results">
             <div id="iFrame-player" class="results js-trailer"></div>
             <h1 id="one-movie" class="results"></h1>
             <section id="one-movie-description" class="results"></section>
         </section>
-    <!--/////////////////////////////END (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+
+
+<!--/////////////////////////////END (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
 
     <!--/////////////////////////////SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
         <section id="js-similar-movie-results" class="results">
