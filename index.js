@@ -302,8 +302,12 @@ console.log(`handleErrorMessage ran`)
     function handleHomeScreen() {
         $("#main-screen-header").show();
         $("#search-screen-headers").hide();
-        
-
+    }
+    function handleResultsScreen() {
+        $("#results-screen").show();
+        $("#credits").show();
+        $("#js-one-movie-results").hide();
+        $("#js-similar-movie-results").hide();
     }
 
     function initApp() {
