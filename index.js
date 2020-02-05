@@ -195,7 +195,7 @@ console.log(`err is ${err}`)
             //$("#search-screen-header").hide();
             //$("#one-movie-search").hide();
             $("#js-one-movie-results").show();
-            //$("#js-one-new-search").show();
+            //$("#js-new-search").show();
         });
     }
 
@@ -215,14 +215,14 @@ console.log(`err is ${err}`)
             //$("#similar-movies-search").hide(); 
             $("#js-similar-movie-results").show();
             $("ul").show();
-            //$("#js-one-new-search").show();
+            //$("#js-new-search").show();
             //$("#js-multi-new-search").show();
         })
     }
     // function handleNewSearchOne() {
     //     $("#js-new-search-one").on("submit", event => {
     //         event.preventDefault();
-    //         // $("#js-one-new-search").hide();
+    //         // $("#js-new-search").hide();
     //         // $("#js-multi-new-search").hide();
     //         $("#one-movie-search").show();
     //     })
@@ -233,7 +233,7 @@ console.log(`err is ${err}`)
     //     $("#js-multi-new-search").on("submit", event => {
     //         event.preventDefault();
     //         $(".search").show();
-    //         // $("#js-one-new-search").hide();
+    //         // $("#js-new-search").hide();
     //         // $("#js-multi-new-search").hide();
     //         // $(".search").show();
     //         // handleMultiSubmitButton();
@@ -265,7 +265,9 @@ console.log(`handleErrorMessage ran`)
            
         })
     }
+///////////////////////////////////////////////// NEW CODE BELOW //////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
     function initApp() {
         handleOneSearch();
         handleOneSubmitButton();
