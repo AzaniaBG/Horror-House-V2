@@ -14,6 +14,11 @@
     justify-content: center;
 
 }
+#multi-movie-search, #single-movie-search {
+    display: flex;
+    flex-flow: column wrap;
+   
+}
 #credits {
     display: flex;
     flex-direction: row;
@@ -31,7 +36,7 @@
     
     width: 50px;
     height: 50px;
-    flex: 0 1 5%;
+    flex: 0 3 5%;
     
 }
 
@@ -41,7 +46,7 @@ input {
 header, h1, h2, div {
     text-align: center;
 }
-#search-options, #js-one-movie-results, #js-similar-movie-results, #one-movie-description {
+#js-one-movie-results, #js-similar-movie-results, #one-movie-description {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,22 +57,24 @@ aside {
 }
 
 button {
+    
     margin-bottom: 50px;
     font-size: 20px;
+    margin: 0 auto;
 }
 button:hover {
     color: white;
     background-color: red;
+}
+#js-single-movie-search-submit {
+    /* text-align: center; */
+     
 }
 .hidden {
     display: none;
 }
 /* ************************ MAIN SCREEN ****************************** */
 
-/* show two search options*/
-#one-movie-search, #similar-movies-search, #similars-search-screen-header, #js-one-new-search, #js-multi-new-search {
-    display: none;
-}
 
 #js-one-movie-results, #js-similar-movie-results {
     
@@ -111,6 +118,19 @@ button:hover {
 }
 /* ************************ LAPTOP   *******************************/
 @media only screen and (min-width: 600px) {
+    #home-search-screen {
+        /* display: flex; */
+        flex-flow: row nowrap;
+        justify-content: center;
+    
+    }
+    #multi-movie-search, #single-movie-search {
+        
+        flex-flow: row nowrap;
+        
+       
+    }
+
     aside {
         flex-wrap: wrap;
         width: 75%;
@@ -157,13 +177,7 @@ button:hover {
         align-items: center;
 
     }
-    #search-options, #js-one-movie-results {
-        
-    }
-    #js-similar-movie-results, #one-movie-description {
-
-    }
-
+    
     aside {
         flex-wrap: wrap;
         width: 75%;
