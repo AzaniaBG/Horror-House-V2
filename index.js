@@ -162,7 +162,7 @@ console.log(`err is ${err}`)
         $("#js-search-one").on("click", event => {
             event.preventDefault();
             $("#main-screen-header").hide();
-            $("#similars-search-screen-header").hide();
+            $("#multi-search-screen-header").hide();
             $("#js-multi-search-option").hide();
             $("#js-search-one").hide();
             $("#one-movie-search").show();
@@ -176,7 +176,7 @@ console.log(`err is ${err}`)
             $("#main-screen-header").hide();
             $("#js-search-one").hide();
             $("#js-multi-search-option").hide();
-            $("#similars-search-screen-header").show();
+            $("#multi-search-screen-header").show();
             $("#js-multi-search-button").show();
             $("#similar-movies-search").show();
         });
