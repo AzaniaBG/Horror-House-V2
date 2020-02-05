@@ -11,29 +11,18 @@
     <title>API Hack Wireframe</title>
 </head>
 <body >
-<!--/////////////////////////////MAIN SCREEN HEADER ///////////////////////////////-->
+
     
     <header id="main-screen-header">
-        <h1>Greetings. Welcome to the Horror House.</h1>
-        <h2>Enter if you dare.</h2>
+        <h1 role="heading" aria-level="1">Greetings. Welcome to the Horror House.</h1>
+        <h2 role="heading" aria-level="2">Enter if you dare.</h2>
     </header>
     <!--/////////////////////////////SEARCH SCREEN HEADERS ///////////////////////////////-->
-    <header id="search-screen-header">
-        <h1 role="heading">Movie Search</h1>
-        
+    <header id="search-screen-headers" class="search-screen-headers">
+        <h1 role="heading" id="single-search-screen-header" class="search-screen-headers">Movie Search</h1>     
+        <h1 role="heading" id="multi-search-screen-header" class="search-screen-headers">Similar Movies Search</h1> 
     </header>
-    <header id="similars-search-screen-header">
-        <h1 role="heading">Similar Movies Search</h1>
-        
-    </header>
-    <!--/////////////////////////////MAIN SCREEN  ///////////////////////////////-->
-    <form role="search">
-        <fieldset id="search-options">
-            <button role="button" id="js-search-one" class="search">Search for a Movie</button>
-            <button role="button"  id="js-multi-search-option" class="search">Find Similar Movies</button>
-        </fieldset>      
-    </form>
-    <!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
+    
 
     <!--/////////////////////////////ERROR SCREEN///////////////////////////////-->
 
@@ -41,47 +30,45 @@
     <section role="alert" id="error-messages" class="hidden">
         <h2 id="search-error-message" class="hidden">Oh the Horror!</h2>
     </section>
-    <!--/////////////////////////////SEARCH SCREEN///////////////////////////////--> 
+    <!--/////////////////////////////MAIN SCREEN HEADER ///////////////////////////////-->
+    <form role="search" id="home-search-screen" class="search one-movie">
+        <fieldset id="single-movie-search">
+            <label for="js-single-movie-search" class="search one-movie">Search for a Movie.
+                <input type="text" id="js-single-movie-search" class="search one-movie">
+            </label>
+            <button role="button"  id="js-single-movie-search-submit" class="search one-movie">ENTER</button>
+        </fieldset>
 
-    <form role="search" class="form search">   
-        <fieldset id="one-movie-search" class="search one-movie">
-            <label for="js-one-movie-search" class="form search one-movie">Search for a Movie.
-                <input type="text" id="js-one-movie-search" class="search one-movie">
+        <fieldset id="multi-movie-search" class="search multi-movie">
+            <label for="js-multi-movie-search" class="search multi-movie">Find Similar Movies.
+                <input type="text" id="js-multi-movie-search" class="search multi-movie">
             </label>
-            <button role="button"  id="js-one-movie-search-button" class="search one-movie">ENTER</button>
+            <select id="js-max-results" name="results" class="search multi-movie">
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>                
+            <button role="button" id="js-multi-movie-search-submit" class="search similar-movies">ENTER</button>
         </fieldset>
-     
-        <fieldset id="similar-movies-search" class="search similar-movies">
-            <label for="js-similar-movies" class="search similar-movies">Find Similar Movies.
-                <input type="text" id="js-similar-movies" class="search similar-movies">
-            </label>
-                <select id="js-max-results" name="results" class="search">
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-            
-                <button role="button" id="js-multi-search-button" class="search similar-movies">ENTER</button>
-        </fieldset>
+
     </form>
-    <!--/////////////////////////////END SEARCH SCREEN///////////////////////////////-->
+<!--/////////////////////////////END MAIN SCREEN///////////////////////////////-->
 
-
-
-
-<!--///////////////////////////// (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+<!--/////////////////////////////MOVIE SEARCH RESULT SCREEN  ///////////////////////////////-->
     <section id="results-screen">
         <section id="js-one-movie-results" class="results">
             <div id="iFrame-player" class="results js-trailer"></div>
             <h1 id="one-movie" class="results"></h1>
             <section id="one-movie-description" class="results"></section>
         </section>
-    <!--/////////////////////////////END (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
 
-    <!--/////////////////////////////SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
+
+<!--/////////////////////////////END (1) MOVIE SEARCH RESULT SCREEN///////////////////////////////-->
+
+<!--/////////////////////////////SIMILAR MOVIES SEARCH RESULT SCREEN///////////////////////////////-->
         <section id="js-similar-movie-results" class="results">
             <header role="heading" class="results">
             </header>

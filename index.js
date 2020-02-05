@@ -46,7 +46,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
-console.log("Oh the HORROR! Something went wrong :(", err);
+console.log("err is", err, typeof);
                 handleErrorMessage(err);
             });
     }
@@ -156,91 +156,54 @@ console.log(`err is ${err}`)
             }
         }
     }
-//show one movie search screen
-    function handleOneSearch() {
-            $("#search-screen-header").hide();
-        $("#js-search-one").on("click", event => {
+//previously handleOneSearch()
+    function handleSingleSearchSubmit() {
+        $("#main-screen-header").hide()
+        $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
-            $("#main-screen-header").hide();
-            $("#similars-search-screen-header").hide();
-            $("#js-multi-search-option").hide();
-            $("#js-search-one").hide();
-            $("#one-movie-search").show();
-            $("#search-screen-header").show();
-        });
-    }
-    //show similar movies search screen
-    function handleMultiSearch() {
-        $("#js-multi-search-option").on("click", event => {
-            event.preventDefault();    
-            $("#main-screen-header").hide();
-            $("#js-search-one").hide();
-            $("#js-multi-search-option").hide();
-            $("#similars-search-screen-header").show();
-            $("#js-multi-search-button").show();
-            $("#similar-movies-search").show();
-        });
-    }
-    
-    function handleOneSubmitButton() {
-        $("#js-one-movie-search-button").on("click", event => {
-            event.preventDefault();
-            $("#error-messages").hide();
-            let searchTerm = $("#js-one-movie-search").val();
-            //empty search results in order to permit new search 
-            $("#js-one-movie-search").val("");
-            getOmdbMovieInfo(searchTerm, 10);
-            // $("#main-screen-header").hide();
-            $("#similar-movies-search").hide();
-            //$("#search-screen-header").hide();
-            //$("#one-movie-search").hide();
+            let singleSearchValue = $("#js-single-movie-search").val();
+            getOmdbMovieInfo(singleSearchValue, 10);
+            $("#js-single-movie-search").val("");
+            $("#multi-movie-search").hide();
+            $("#single-search-screen-header").show();
+            $("#results-screen").show();
             $("#js-one-movie-results").show();
-            //$("#js-new-search").show();
-        });
-    }
-
-    function handleMultiSubmitButton() {
-        $("#js-multi-search-button").on("click", event => {
-            event.preventDefault();
-            $("#error-messages").hide();
-            $("#search-error-message").hide();
-            let multiSearchTerm = $("#js-similar-movies").val();
-            let maxResults = $("#js-max-results").val();
-            $("#js-similar-movies").val("");
-            $("#js-max-results").val("3");
-            getSimilarMovies(multiSearchTerm, maxResults);
-            $("#main-screen-header").hide();
-            $("#one-movie-search").hide();
-            $("#js-one-movie-results").hide(); 
-            //$("#similar-movies-search").hide(); 
-            $("#js-similar-movie-results").show();
-            $("ul").show();
-            //$("#js-new-search").show();
-            //$("#js-multi-new-search").show();
         })
-    }
-    // function handleNewSearchOne() {
-    //     $("#js-new-search-one").on("submit", event => {
-    //         event.preventDefault();
-    //         // $("#js-new-search").hide();
-    //         // $("#js-multi-new-search").hide();
-    //         $("#one-movie-search").show();
-    //     })
-        
-    // }
 
-    // function handleNewSearchMulti() {
-    //     $("#js-multi-new-search").on("submit", event => {
-    //         event.preventDefault();
-    //         $(".search").show();
-    //         // $("#js-new-search").hide();
-    //         // $("#js-multi-new-search").hide();
-    //         // $(".search").show();
-    //         // handleMultiSubmitButton();
-    //     });
-    // }
+    }
+// function handleOneSearch() {                             DELETE 
+//         $("#single-search-screen-header").hide();
+//     $("#js-search-one").on("click", event => {
+//         event.preventDefault();
+//         $("#main-screen-header").hide();
+//         $("#multi-search-screen-header").hide();
+//         $("#js-multi-search-option").hide();
+//         $("#js-search-one").hide();
+//         $("#one-movie-search").show();
+//         $("#single-search-screen-header").show();
+//     });
+// }
+
+//previously handleMultiSearch()   
+function handleMultiSearchSubmit() {
+    $("#js-multi-movie-search-submit").on("click", event => {
+        event.preventDefault();
+        let multiMovieSearchValue = $("#js-multi-movie-search").val();
+        let maxResults = $("#js-max-results").val();
+        getSimilarMovies(multiMovieSearchValue, maxResults);
+        $("#js-multi-movie-search").val("");
+        $("#js-max-results").val("");
+        $("#main-screen-header").hide();
+        $("#single-search-screen-header").show();
+        $("#results-screen").show();
+        $("#js-similar-movie-results").show();
+
+    })
+    
+}
+
     function handleErrorMessage(error) {
-console.log(`handleErrorMessage ran`)
+console.log(`error is ${error}`)
         let errorMessage = `Oh the HORROR! ${error}`;
             $("#error-messages").show();
             $("#search-error-message").show();
@@ -265,15 +228,31 @@ console.log(`handleErrorMessage ran`)
            
         })
     }
-///////////////////////////////////////////////// NEW CODE BELOW //////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+    function handleHomeScreen() {
+        $("#main-screen-header").show();
+        $("#search-screen-headers").hide();
+        $("#js-results-home").hide();
+        $("#credits").hide();
+    }
+    function handleResultsScreen() {
+        $("#results-screen").show();
+        $("#credits").show();
+        $("#search-screen-headers").show();
+        $("#js-results-home").show();
+        $("#js-one-movie-results").hide();
+        $("#js-similar-movie-results").hide();
+        $("#single-search-screen-header").hide();
+        $("#multi-search-screen-header").hide();
+    }
+
     function initApp() {
-        handleOneSearch();
-        handleOneSubmitButton();
-        handleMultiSearch();
-        handleMultiSubmitButton();
+        handleSingleSearchSubmit();
+        handleMultiSearchSubmit();
         handleHomeButton();
+        handleResultsScreen();
+        handleHomeScreen();
+        
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
