@@ -158,9 +158,10 @@ console.log(`err is ${err}`)
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
-        
+              
         $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
+            $("#error-messages").hide();
             handleResultsScreen();
             let singleSearchValue = $("#js-single-movie-search").val();
             getOmdbMovieInfo(singleSearchValue, 10);
@@ -170,20 +171,7 @@ console.log(`err is ${err}`)
             // $("#results-screen").show();
             $("#js-one-movie-results").show();
         })
-
     }
-// function handleOneSearch() {                             DELETE 
-//         $("#single-search-screen-header").hide();
-//     $("#js-search-one").on("click", event => {
-//         event.preventDefault();
-//         $("#main-screen-header").hide();
-//         $("#multi-search-screen-header").hide();
-//         $("#js-multi-search-option").hide();
-//         $("#js-search-one").hide();
-//         $("#one-movie-search").show();
-//         $("#single-search-screen-header").show();
-//     });
-// }
 
 //previously handleMultiSearch()   
 function handleMultiSearchSubmit() {
@@ -209,10 +197,9 @@ console.log(`error is ${error}`)
             $("#main-screen-header").hide();
             $("#search-error-message").text(errorMessage); 
             $("#error-messages").show();
-            $("#search-error-message").show();
-            
-            
+            $("#search-error-message").show();            
     }
+
     function handleUndefined() {
         let errorMessage = `Oh the HORROR! No movie found.`;
         $("ul").hide();
