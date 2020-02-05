@@ -177,15 +177,18 @@ console.log(`err is ${err}`)
 function handleMultiSearchSubmit() {
     $("#js-multi-movie-search-submit").on("click", event => {
         event.preventDefault();
+        $("#error-messages").hide();
         let multiMovieSearchValue = $("#js-multi-movie-search").val();
         let maxResults = $("#js-max-results").val();
         getSimilarMovies(multiMovieSearchValue, maxResults);
         $("#js-multi-movie-search").val("");
-        $("#js-max-results").val("");
+        $("#js-max-results").val(3);
         $("#main-screen-header").hide();
+        $("#search-screen-headers").show();
         $("#single-search-screen-header").show();
         $("#results-screen").show();
         $("#js-similar-movie-results").show();
+        $("#js-similar-movies-list").show();
 
     })
     
