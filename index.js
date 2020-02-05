@@ -200,6 +200,7 @@ function handleMultiSearchSubmit() {
 console.log(`error is ${error}`)
         let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
+            $("#credits").hide();
             $("#search-error-message").text(errorMessage); 
             $("#error-messages").show();
             $("#search-error-message").show();            
@@ -221,6 +222,7 @@ console.log(`error is ${error}`)
     }
 
     function handleHomeScreen() {
+        $("#error-messages").hide();
         $("#results-screen").hide();
         $("#search-screen-headers").hide();
         $("#js-results-home").hide();

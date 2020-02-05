@@ -75,7 +75,7 @@ button:hover {
     color: white;
     background-color: red;
 }
-select, button:focus {
+select:focus, button:focus {
     outline: none;
     border: 1px solid red;
 }
