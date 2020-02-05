@@ -8,7 +8,7 @@
 /* * {
     border: thin darkblue solid;
 } */
-#home-search-screen {
+#home-search-screen, #home {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
