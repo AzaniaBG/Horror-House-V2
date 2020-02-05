@@ -171,18 +171,18 @@ console.log(`err is ${err}`)
         })
 
     }
-    // function handleOneSearch() {                             DELETE 
-    //         $("#single-search-screen-header").hide();
-    //     $("#js-search-one").on("click", event => {
-    //         event.preventDefault();
-    //         $("#main-screen-header").hide();
-    //         $("#multi-search-screen-header").hide();
-    //         $("#js-multi-search-option").hide();
-    //         $("#js-search-one").hide();
-    //         $("#one-movie-search").show();
-    //         $("#single-search-screen-header").show();
-    //     });
-    // }
+// function handleOneSearch() {                             DELETE 
+//         $("#single-search-screen-header").hide();
+//     $("#js-search-one").on("click", event => {
+//         event.preventDefault();
+//         $("#main-screen-header").hide();
+//         $("#multi-search-screen-header").hide();
+//         $("#js-multi-search-option").hide();
+//         $("#js-search-one").hide();
+//         $("#one-movie-search").show();
+//         $("#single-search-screen-header").show();
+//     });
+// }
 
     //show similar movies search screen
     function handleMultiSearch() {
@@ -197,22 +197,22 @@ console.log(`err is ${err}`)
         });
     }
     
-    function handleOneSubmitButton() {
-        $("#js-one-movie-search-button").on("click", event => {
-            event.preventDefault();
-            $("#error-messages").hide();
-            let searchTerm = $("#js-one-movie-search").val();
-            //empty search results in order to permit new search 
-            $("#js-one-movie-search").val("");
-            getOmdbMovieInfo(searchTerm, 10);
-            // $("#main-screen-header").hide();
-            $("#similar-movies-search").hide();
-            //$("#single-search-screen-header").hide();
-            //$("#one-movie-search").hide();
-            $("#js-one-movie-results").show();
-            //$("#js-new-search").show();
-        });
-    }
+// function handleOneSubmitButton() {                       DELETE
+//     $("#js-one-movie-search-button").on("click", event => {
+//         event.preventDefault();
+//         $("#error-messages").hide();
+//         let searchTerm = $("#js-one-movie-search").val();
+//         //empty search results in order to permit new search 
+//         $("#js-one-movie-search").val("");
+//         getOmdbMovieInfo(searchTerm, 10);
+//         // $("#main-screen-header").hide();
+//         $("#similar-movies-search").hide();
+//         //$("#single-search-screen-header").hide();
+//         //$("#one-movie-search").hide();
+//         $("#js-one-movie-results").show();
+//         //$("#js-new-search").show();
+//     });
+// }
 
     function handleMultiSubmitButton() {
         $("#js-multi-search-button").on("click", event => {
