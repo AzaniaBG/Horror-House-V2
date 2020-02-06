@@ -66,7 +66,9 @@ aside {
     font-size: 20px;
 }
 p {
-    font-family: 'Playfair Display SC', serif;
+    /* font-family: 'Playfair Display SC', serif; */
+    font-family: 'Nosifer', cursive;
+
 }
 
 button {
