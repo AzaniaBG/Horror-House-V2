@@ -53,6 +53,7 @@ input[type=text]:focus {
     
 }
 header, h1, h2, div {
+    font-family: 'Cinzel', serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
 }
 #js-one-movie-results, #js-similar-movie-results, #one-movie-description {
