@@ -65,9 +65,13 @@ header, h1, h2, div {
 aside {
     font-size: 20px;
 }
+p {
+    font-family: 'Playfair Display SC', serif;
+}
 
 button {
     
+    font-family: 'Creepster', cursive;
     margin-bottom: 50px;
     font-size: 20px;
     margin: 0 auto;
