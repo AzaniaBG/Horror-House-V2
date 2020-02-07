@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Azania Baker-Garcia, ABG, GitHub project, API Hack Capstone. Search for horror movies and find related content.">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="main.css">
     <link type="" src="https://media1.popsugar-assets.com/files/thumbor/LuOCuexyRgXB2T5lXnXQFabV1Kg/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/09/18/916/n/41541398/tmp_KLYZIr_87d464e19b356d6c_MCDAMHO_EC035.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cinzel|Playfair+Display+SC&display=swap" rel="stylesheet">
@@ -24,8 +23,7 @@
     <header id="search-screen-headers" class="search-screen-headers">
         <h1 role="heading" id="single-search-screen-header" class="search-screen-headers">Movie Search</h1>     
         <h1 role="heading" id="multi-search-screen-header" class="search-screen-headers">Similar Movies Search</h1> 
-    </header>
-    
+    </header> 
 
     <!--/////////////////////////////ERROR SCREEN///////////////////////////////-->
 
@@ -37,14 +35,14 @@
     <form role="search" id="home-search-screen" class="search one-movie">
         <fieldset id="single-movie-search">
             <label for="js-single-movie-search" class="search one-movie">Search for a Movie.
-                <input type="text" id="js-single-movie-search" class="search one-movie">
+                <input type="text" id="js-single-movie-search" class="search one-movie" required />
             </label>
             <button id="js-single-movie-search-submit" class="search one-movie">ENTER</button>
         </fieldset>
 
         <fieldset id="multi-movie-search" class="search multi-movie">
             <label for="js-multi-movie-search" class="search multi-movie">Find Similar Movies.
-                <input type="text" id="js-multi-movie-search" class="search multi-movie">
+                <input type="text" id="js-multi-movie-search" class="search multi-movie" required />
             </label>
             <select id="js-max-results" name="results" class="search multi-movie">
                 <option value="3">3</option>
@@ -97,11 +95,7 @@
             <img id="tmdb-logo" src="https://www.themoviedb.org/assets/2/v4/logos/312x276-primary-blue-fb50dee3bf664c866fd216e6cee64af33d20707ea3091ddc65c5e8aa4c152eb2.png" alt="The Movie Data Base">
         </section>
     </footer>
-<script
-  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
-  crossorigin="anonymous">
-</script>
+
 
 <script
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
