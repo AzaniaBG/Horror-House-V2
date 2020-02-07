@@ -150,7 +150,7 @@ console.log(`err is ${err}`)
             handleErrorMessage();
         } else {
         
-            for(let i = 0; i < maxResults; i++) {
+            for(let i = 0; i < movies.length; i++) {
                 let movie = `<li class="results">${movies[i]}</li>`;
                 $("ul").append(movie);         
             }
