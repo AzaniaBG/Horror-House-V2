@@ -149,8 +149,8 @@ console.log(`err is ${err}`)
         if(movies.includes("undefined || 0")) {
             handleErrorMessage();
         } else {
-        
-            for(let i = 0; i < movies.length; i++) {
+            let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
+            for(let i = 0; i < biggestResults; i++) {
                 let movie = `<li class="results">${movies[i]}</li>`;
                 $("ul").append(movie);         
             }
