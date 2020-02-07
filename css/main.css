@@ -1,6 +1,6 @@
 
 /* body {
-    
+    background-image: url(images/amityvilleHouse.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -8,12 +8,6 @@
 /* * {
     border: thin darkblue solid;
 } */
-body {
-    background-image: url(../images/amityville2.jpg);
-    background-repeat: none;
-    background-position: center;
-    background-size: 50%;
-}
 #home-search-screen, #home {
     display: flex;
     flex-flow: column wrap;
@@ -165,7 +159,12 @@ select:focus, button:focus {
         justify-content: space-evenly;
         flex-shrink: 2;
     }
-    
+    body {
+        /* background-image: url(images/amityvilleHouse.png); */
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 50%;
+    }
 
     #credits {
         display: flex;
