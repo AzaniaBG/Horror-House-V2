@@ -11,8 +11,8 @@
 body {
     background-image: url(../images/amityville2.jpg);
     background-repeat: none;
-    background-position: center;
-    background-size: 50%;
+    background-position: stretch;
+    background-size: 100%;
 }
 #home-search-screen, #home {
     display: flex;
