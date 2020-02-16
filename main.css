@@ -22,30 +22,33 @@ body {
 }
 #multi-movie-search, #single-movie-search {
     display: flex;
-    flex-flow: column wrap;
-   
+    flex-flow: column wrap;  
 }
 #credits {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: nowrap;
-    font-size: 10px;
-
-    
+    font-size: 10px; 
 }
 #tmdb-credit {
-    flex: 0 3 5%;
-    
+    flex: 0 3 5%;  
 }
-#tmdb-logo {
-    
+#tmdb-logo { 
     width: 50px;
     height: 50px;
-    flex: 0 3 5%;
-    
+    flex: 0 3 5%;  
 }
-
+#js-similar-movies-list {
+    text-decoration: none;
+    list-style: none;
+    background-color: red;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    padding: 10px 10px;
+    margin: 15px auto;
+}
 input {
     border: 5px, solid, red;
 }

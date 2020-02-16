@@ -248,8 +248,7 @@ console.log(`error is ${error}`)
         handleMultiSearchSubmit();
         handleHomeButton();
         handleResultsScreen();
-        handleHomeScreen();
-        
+        handleHomeScreen();     
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads
