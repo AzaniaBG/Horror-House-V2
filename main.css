@@ -13,7 +13,9 @@ body {
     background-repeat: none;
     background-position: stretch;
     background-size: 100%;
+    box-sizing: border-box;
 }
+
 #home-search-screen, #home {
     display: flex;
     flex-flow: column wrap;
@@ -160,7 +162,9 @@ select:focus, button:focus {
         
        
     }
-
+    #search-error-message {
+        margin: 0 auto;
+    }
     aside {
         flex-wrap: wrap;
         width: 75%;

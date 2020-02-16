@@ -47,7 +47,8 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
 console.log("err is", err);
-                handleErrorMessage(err);
+                let errorMessage = `Oh the HORROR! ${err} Please check your search...or else.`
+                handleErrorMessage(errorMessage);
             });
     }
 
@@ -120,13 +121,21 @@ console.log(`err is ${err}`)
     }
 
     function parseMovieInfo(responseJson, query) {
-
+console.log(`parseMoveInfo Genres is:`)
+console.log(responseJson["Genre"])
+        
         let movieTitle = responseJson["Title"];
         let movieYear = responseJson["Year"];
         let moviePlot = responseJson["Plot"];
         let imdbRating = responseJson["imdbRating"];
         let imdbID = responseJson["imdbID"];
-        displayMovieInfo(movieTitle, movieYear, moviePlot, imdbRating);
+        if(responseJson["Genre"].includes("Horror" || "horror")) {
+            displayMovieInfo(movieTitle, movieYear, moviePlot, imdbRating);
+        } else {
+            let error = "CURSES! No horror movies found"
+            handleErrorMessage(error);
+        }
+         console.log("no horror movies");
         getYtId(imdbID);
         getDetailsWithId(imdbID);       
 }
@@ -204,7 +213,7 @@ console.log(`error is ${error}`)
         let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
             $("#credits").hide();
-            $("#search-error-message").text(errorMessage); 
+            $("#search-error-message").text(error); 
             $("#error-messages").show();
             $("#search-error-message").show();            
     }
