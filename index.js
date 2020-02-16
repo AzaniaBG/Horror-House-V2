@@ -154,7 +154,7 @@ console.log(`err is ${err}`)
         } else {
             let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
             for(let i = 0; i < biggestResults; i++) {
-                let movieAndDate = `<li class="results">${movies[i]} - Released: ${releaseDate[i]} </li>`;
+                let movieAndDate = `<li class="results">${movies[i]} - Released: ${releaseDate[i]}</li><br>`;
                 $("ul").append(movieAndDate);         
             }
         }
