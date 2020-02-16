@@ -101,14 +101,17 @@ console.log("err is", err);
                     return response.json();
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
+                let results = responseJson.results;
 console.log(`responseJson is:`, responseJson);
+console.log(`results is:`, results);
                 if(responseJson.results.length === 0) {
                     handleUndefined();
-                } else {
-                let results = responseJson.results;
+                } else {             
                 let titles = results.map(item => item["title"]);
+                let releaseDate = results.map(item => item["release_date"])
+                
                 //for each result, display the title per the displaySimilarMovies function them in a list item
-                displaySimilarMovies(titles, maxResults)   
+                displaySimilarMovies(titles, releaseDate, maxResults)   
                 }         
             }).catch(err => {
 console.log(`err is ${err}`)
@@ -144,15 +147,15 @@ console.log(`err is ${err}`)
         $("#iFrame-player").html(iFrameElement);    
     }
 
-    function displaySimilarMovies(movies, maxResults) {
+    function displaySimilarMovies(movies, releaseDate, maxResults) {
         $("li").detach();
         if(movies.includes("undefined || 0")) {
             handleErrorMessage();
         } else {
             let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
             for(let i = 0; i < biggestResults; i++) {
-                let movie = `<li class="results">${movies[i]}</li>`;
-                $("ul").append(movie);         
+                let movieAndDate = `<li class="results">${movies[i]} - Released: ${releaseDate[i]} </li>`;
+                $("ul").append(movieAndDate);         
             }
         }
     }
