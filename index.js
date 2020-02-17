@@ -210,7 +210,7 @@ function handleMultiSearchSubmit() {
 
     function handleErrorMessage(error) {
 console.log(`error is ${error}`)
-        let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
+        // let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
             $("#credits").hide();
             $("#search-error-message").text(error); 

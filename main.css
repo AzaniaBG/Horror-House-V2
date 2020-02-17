@@ -25,6 +25,8 @@ body {
 #multi-movie-search, #single-movie-search {
     display: flex;
     flex-flow: column wrap;  
+    background-color: darkred;
+    color: white;
 }
 #credits {
     display: flex;
@@ -32,6 +34,8 @@ body {
     justify-content: center;
     flex-wrap: nowrap;
     font-size: 10px; 
+    background-color: white;
+
 }
 #tmdb-credit {
     flex: 0 3 5%;  
@@ -50,6 +54,11 @@ body {
     /* font-family: 'Lato', sans-serif; */
     padding: 10px 10px;
     margin: 15px auto;
+}
+#one-movie-description {
+    /* background-color: darkslategray; */
+    background-color: red;
+    color: white;
 }
 input {
     border: 5px, solid, red;
@@ -157,13 +166,14 @@ select:focus, button:focus {
     
     }
     #multi-movie-search, #single-movie-search {
-        
         flex-flow: row nowrap;
-        
-       
     }
     #search-error-message {
         margin: 0 auto;
+    }
+    #one-movie-description {
+        display: flex;
+        justify-content: center;
     }
     aside {
         flex-wrap: wrap;
@@ -180,6 +190,7 @@ select:focus, button:focus {
         justify-content: flex-end;
         flex-wrap: nowrap;
         font-size: 10px;
+        
     
         
     }
