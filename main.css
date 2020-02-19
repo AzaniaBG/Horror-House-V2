@@ -15,7 +15,21 @@ body {
     background-size: 100%;
     box-sizing: border-box;
 }
-
+h1, h2 {
+    color: black;
+    -webkit-text-stroke: .25px white;
+    -webkit-text-fill-color: black;
+}
+label {
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    padding: 10px 10px 20px;
+    -webkit-text-stroke: .5px maroon;
+    -webkit-text-fill-color: white;
+}
+#js-max-results {
+    padding: 20px 5px;
+}
 #home-search-screen, #home {
     display: flex;
     flex-flow: column wrap;
@@ -25,7 +39,9 @@ body {
 #multi-movie-search, #single-movie-search {
     display: flex;
     flex-flow: column wrap;  
-    background-color: darkred;
+    /* background-color: darkred; */
+    background-color: rgba(0, 0, 0, .5);
+    width: 25%;
     color: white;
 }
 #credits {
@@ -54,6 +70,7 @@ body {
     /* font-family: 'Lato', sans-serif; */
     padding: 10px 10px;
     margin: 15px auto;
+    
 }
 #one-movie-description {
     /* background-color: darkslategray; */
