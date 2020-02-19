@@ -47,7 +47,8 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
 console.log("err is", err);
-                handleErrorMessage(err);
+                let errorMessage = `Oh the HORROR! ${err} Please check your search...or else.`
+                handleErrorMessage(errorMessage);
             });
     }
 
@@ -101,14 +102,17 @@ console.log("err is", err);
                     return response.json();
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
+                let results = responseJson.results;
 console.log(`responseJson is:`, responseJson);
+console.log(`results is:`, results);
                 if(responseJson.results.length === 0) {
                     handleUndefined();
-                } else {
-                let results = responseJson.results;
+                } else {             
                 let titles = results.map(item => item["title"]);
+                let releaseDate = results.map(item => item["release_date"])
+                
                 //for each result, display the title per the displaySimilarMovies function them in a list item
-                displaySimilarMovies(titles, maxResults)   
+                displaySimilarMovies(titles, releaseDate, maxResults)   
                 }         
             }).catch(err => {
 console.log(`err is ${err}`)
@@ -117,13 +121,21 @@ console.log(`err is ${err}`)
     }
 
     function parseMovieInfo(responseJson, query) {
-
+console.log(`parseMoveInfo Genres is:`)
+console.log(responseJson["Genre"])
+        
         let movieTitle = responseJson["Title"];
         let movieYear = responseJson["Year"];
         let moviePlot = responseJson["Plot"];
         let imdbRating = responseJson["imdbRating"];
         let imdbID = responseJson["imdbID"];
-        displayMovieInfo(movieTitle, movieYear, moviePlot, imdbRating);
+        if(responseJson["Genre"].includes("Horror" || "horror")) {
+            displayMovieInfo(movieTitle, movieYear, moviePlot, imdbRating);
+        } else {
+            let error = "CURSES! No horror movies found"
+            handleErrorMessage(error);
+        }
+         console.log("no horror movies");
         getYtId(imdbID);
         getDetailsWithId(imdbID);       
 }
@@ -144,15 +156,15 @@ console.log(`err is ${err}`)
         $("#iFrame-player").html(iFrameElement);    
     }
 
-    function displaySimilarMovies(movies, maxResults) {
+    function displaySimilarMovies(movies, releaseDate, maxResults) {
         $("li").detach();
         if(movies.includes("undefined || 0")) {
             handleErrorMessage();
         } else {
             let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
             for(let i = 0; i < biggestResults; i++) {
-                let movie = `<li class="results">${movies[i]}</li>`;
-                $("ul").append(movie);         
+                let movieAndDate = `<li class="results">${movies[i]} - Released: ${releaseDate[i]}</li><br>`;
+                $("ul").append(movieAndDate);         
             }
         }
     }
@@ -198,10 +210,10 @@ function handleMultiSearchSubmit() {
 
     function handleErrorMessage(error) {
 console.log(`error is ${error}`)
-        let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
+        // let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
             $("#credits").hide();
-            $("#search-error-message").text(errorMessage); 
+            $("#search-error-message").text(error); 
             $("#error-messages").show();
             $("#search-error-message").show();            
     }
@@ -248,8 +260,7 @@ console.log(`error is ${error}`)
         handleMultiSearchSubmit();
         handleHomeButton();
         handleResultsScreen();
-        handleHomeScreen();
-        
+        handleHomeScreen();     
     }
     
 //ACTIVATE APP--call j$ and pass in a callback function to run when the page loads

@@ -11,8 +11,24 @@
 body {
     background-image: url(../images/amityville2.jpg);
     background-repeat: none;
-    background-position: center;
-    background-size: 50%;
+    background-position: stretch;
+    background-size: 100%;
+    box-sizing: border-box;
+}
+h1, h2 {
+    color: black;
+    -webkit-text-stroke: .25px white;
+    -webkit-text-fill-color: black;
+}
+label {
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    padding: 10px 10px 20px;
+    -webkit-text-stroke: .5px maroon;
+    -webkit-text-fill-color: white;
+}
+#js-max-results {
+    padding: 20px 5px;
 }
 #home-search-screen, #home {
     display: flex;
@@ -22,30 +38,45 @@ body {
 }
 #multi-movie-search, #single-movie-search {
     display: flex;
-    flex-flow: column wrap;
-   
+    flex-flow: column wrap;  
+    /* background-color: darkred; */
+    background-color: rgba(0, 0, 0, .5);
+    width: 25%;
+    color: white;
 }
 #credits {
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: nowrap;
-    font-size: 10px;
+    font-size: 10px; 
+    background-color: white;
 
-    
 }
 #tmdb-credit {
-    flex: 0 3 5%;
-    
+    flex: 0 3 5%;  
 }
-#tmdb-logo {
-    
+#tmdb-logo { 
     width: 50px;
     height: 50px;
-    flex: 0 3 5%;
+    flex: 0 3 5%;  
+}
+#js-similar-movies-list {
+    text-decoration: none;
+    list-style: none;
+    background-color: red;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    padding: 10px 10px;
+    margin: 15px auto;
     
 }
-
+#one-movie-description {
+    /* background-color: darkslategray; */
+    background-color: red;
+    color: white;
+}
 input {
     border: 5px, solid, red;
 }
@@ -152,12 +183,15 @@ select:focus, button:focus {
     
     }
     #multi-movie-search, #single-movie-search {
-        
         flex-flow: row nowrap;
-        
-       
     }
-
+    #search-error-message {
+        margin: 0 auto;
+    }
+    #one-movie-description {
+        display: flex;
+        justify-content: center;
+    }
     aside {
         flex-wrap: wrap;
         width: 75%;
@@ -173,6 +207,7 @@ select:focus, button:focus {
         justify-content: flex-end;
         flex-wrap: nowrap;
         font-size: 10px;
+        
     
         
     }
