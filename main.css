@@ -120,6 +120,9 @@ button:hover {
     color: white;
     background-color: red;
 }
+select {
+    margin: auto;
+}
 select:focus, button:focus {
     outline: none;
     border: 1px solid red;
