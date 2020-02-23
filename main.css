@@ -9,7 +9,7 @@
     border: thin darkblue solid;
 } */
 body {
-    background-image: url(../images/amityville2.jpg);
+    background-image: url(./images/amityville2.jpg);
     background-repeat: none;
     background-position: stretch;
     background-size: 100%;
