@@ -77,9 +77,10 @@ console.log("err is", err);
             const queryString = formatTmdbQueryParams(params);
             const videoURL = tmdbSearchURL + `${imdbID}/videos?` + queryString;
             fetch(videoURL).then(response => response.json()).then(responseJson => {
+console.log(`responseJson is`, responseJson)
                 let videos = responseJson.results;
                 let ytMatch = videos.filter(video => video["site"] === "YouTube");
-                let ytID = ytMatch[0]["key"]
+                let ytID = ytMatch[0]["key"];
                 displayVideoTrailer(ytID);
             })
     }
@@ -130,13 +131,13 @@ console.log(responseJson["Genre"])
         let imdbRating = responseJson["imdbRating"];
         let imdbID = responseJson["imdbID"];
         if(responseJson["Genre"].includes("Horror" || "horror")) {
+            getYtId(imdbID);
             displayMovieInfo(movieTitle, movieYear, moviePlot, imdbRating);
         } else {
             let error = "CURSES! No horror movies found"
             handleErrorMessage(error);
         }
-         console.log("no horror movies");
-        getYtId(imdbID);
+        //  console.log("no horror movies");
         getDetailsWithId(imdbID);       
 }
 
