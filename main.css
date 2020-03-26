@@ -24,8 +24,8 @@ label {
     font-family: 'Raleway', sans-serif;
     /* font-family: 'Lato', sans-serif; */
     padding: 10px 10px 20px;
-    -webkit-text-stroke: .5px maroon;
-    -webkit-text-fill-color: white;
+    /* -webkit-text-stroke: .5px maroon;
+    -webkit-text-fill-color: white; */
 }
 #js-max-results {
     padding: 20px 5px;
@@ -74,7 +74,7 @@ label {
 }
 #one-movie-description {
     /* background-color: darkslategray; */
-    background-color: red;
+    background-color: black;
     color: white;
 }
 input {
