@@ -63,7 +63,8 @@ console.log("err is", err);
             if(response.ok) {
                 return response.json();
             } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => console.log(responseJson)).catch(err => {
+            }).then(responseJson => console.log(responseJson))
+            .catch(err => {
                 handleErrorMessage(err);
             });
 
@@ -138,6 +139,7 @@ console.log(responseJson["Genre"])
             handleErrorMessage(error);
         }
         //  console.log("no horror movies");
+        getYtId(imdbID);
         getDetailsWithId(imdbID);       
 }
 
