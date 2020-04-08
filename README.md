@@ -8,5 +8,5 @@ https://azaniabg.github.io/Horror-House-V2/
 
 ## About:
 - Search for a specific horror movie and get details.
-- Or, search for similar movies.
+- Or, search for similar movies based on a movie search.
 

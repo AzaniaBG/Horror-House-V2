@@ -1,5 +1,4 @@
 'use strict'
-
 //store API keys in global variables to access for API calls
 const omdbKey = "cb95d063"
 const tmdbKey = "b81d09aa5f188c95ba4dc2e4336459b4"
@@ -38,7 +37,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                if(response.ok) {
                 return response.json();
                }
-               throw new Error(response.statusText);
+               throw new Error(response.statusText, `yikes`);
             })
            .then(responseJson => {
                if(responseJson.hasOwnProperty("Response") && responseJson.hasOwnProperty("Error")) {
@@ -52,23 +51,28 @@ console.log("err is", err);
             });
     }
 
-    function  getDetailsWithId(id) {
-        const params = {
-            apikey: omdbKey,
-            i: id,
-        }
-        let queryIdString = formatOmdbQueryParams(params);
-        let omdbIdSearchURL = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?` + queryIdString;
-        fetch(omdbIdSearchURL).then(response => {
-            if(response.ok) {
-                return response.json();
-            } throw new Error("Oh the HORROR! Something went wrong :(")
-            }).then(responseJson => console.log(responseJson))
-            .catch(err => {
-                handleErrorMessage(err);
-            });
+    // function  getDetailsWithId(id) {
+    //     const params = {
+    //         apikey: omdbKey,
+    //         i: id,
+    //     }
+    //     let queryIdString = formatOmdbQueryParams(params);
+    //     let omdbIdSearchURL = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?` + queryIdString;
+    //     fetch(omdbIdSearchURL).then(response => {
+    //         if(response.ok) {
+    //             return response.json();
+    //         } throw new Error("Oh the HORROR! Something went wrong :(")
+    //         })
+    //             .then(responseJson => {
+    //                 console.log(`responseJson from getDetailsWithId:`, responseJson)
+    //                 let genreIds = responseJson.results.map(result => result["genre_ids"])
+    //                 console.log(genreIds);
+    //             })
+    //             .catch(err => {
+    //                 handleErrorMessage(`Curses! Something has died.`, err);
+    //             });
 
-    }
+    // }
     function getYtId(imdbID) {
                 const params = {
                 api_key: tmdbKey,
@@ -78,7 +82,7 @@ console.log("err is", err);
             const queryString = formatTmdbQueryParams(params);
             const videoURL = tmdbSearchURL + `${imdbID}/videos?` + queryString;
             fetch(videoURL).then(response => response.json()).then(responseJson => {
-console.log(`responseJson is`, responseJson)
+console.log(`responseJson from getYTId is`, responseJson)
                 let videos = responseJson.results;
                 let ytMatch = videos.filter(video => video["site"] === "YouTube");
                 let ytID = ytMatch[0]["key"];
@@ -105,15 +109,16 @@ console.log(`responseJson is`, responseJson)
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
                 let results = responseJson.results;
-console.log(`responseJson is:`, responseJson);
-console.log(`results is:`, results);
+//console.log(`responseJson is:`, responseJson);
+//const genreIds = results[0].genre_ids; //.map(result => result.genre_ids)
                 if(responseJson.results.length === 0) {
                     handleUndefined();
                 } else {             
                 let titles = results.map(item => item["title"]);
-                let releaseDate = results.map(item => item["release_date"])
+                let releaseDate = results.map(item => item["release_date"]);
+                let genreIds = results.map(item => item["genre_ids"]);
                 
-                //for each result, display the title per the displaySimilarMovies function them in a list item
+                //for each result, display the title per the displaySimilarMovies function in a list item
                 displaySimilarMovies(titles, releaseDate, maxResults)   
                 }         
             }).catch(err => {
@@ -139,8 +144,8 @@ console.log(responseJson["Genre"])
             handleErrorMessage(error);
         }
         //  console.log("no horror movies");
-        getYtId(imdbID);
-        getDetailsWithId(imdbID);       
+        //getYtId(imdbID);
+        //getDetailsWithId(imdbID);       
 }
 
 //display information related to search results for one movie
@@ -162,7 +167,7 @@ console.log(responseJson["Genre"])
     function displaySimilarMovies(movies, releaseDate, maxResults) {
         $("li").detach();
         if(movies.includes("undefined || 0")) {
-            handleErrorMessage();
+            handleErrorMessage(`Curses! No movie found.`);
         } else {
             let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
             for(let i = 0; i < biggestResults; i++) {
@@ -173,8 +178,7 @@ console.log(responseJson["Genre"])
     }
 //previously handleOneSearch()
     function handleSingleSearchSubmit() {
-              
-        $("#js-single-movie-search-submit").on("click", event => {
+            $("#js-single-movie-search-submit").on("click", event => {
             event.preventDefault();
             $("#error-messages").hide();
             handleResultsScreen();
