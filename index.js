@@ -153,14 +153,14 @@ console.log(responseJson["Genre"])
         let movieInfoString = `<h3>${title} (${year})</h3>
         <aside>IMDB Rating: ${rating}</aside>
         <article>${plot}</article>
-        <video></video>`;
+        `;
         $("#one-movie-description").html(movieInfoString);
     }
 
     function displayVideoTrailer(ytID) {
 
         let trailer = `https://www.youtube.com/embed/${ytID}?enablejsapi=1&origin=https://m.media-amazon.com/images/M/MV5BMTUyNzkwMzAxOF5BMl5BanBnXkFtZTgwMzc1OTk1NjE@._V1_SX300.jpg`
-        let iFrameElement = `<iFrame id="iFrame-player" type="text/html" width="200" height="200"src="${trailer}"></iFrame>`
+        let iFrameElement = `<iFrame id="iFrame-player" type="text/html" width="100%" height="200"src="${trailer}"></iFrame>`
         $("#iFrame-player").html(iFrameElement);    
     }
 

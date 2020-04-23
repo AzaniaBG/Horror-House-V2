@@ -18,13 +18,13 @@ body {
 h1, h2 {
     color: black;
     -webkit-text-stroke: .25px white;
-    -webkit-text-fill-color: black;
+    -webkit-text-fill-color: maroon;
 }
 label {
     font-family: 'Raleway', sans-serif;
     /* font-family: 'Lato', sans-serif; */
     padding: 10px 10px 20px;
-    /* -webkit-text-stroke: .5px maroon;
+    /* -webkit-text-stroke: .5px black;
     -webkit-text-fill-color: white; */
 }
 #js-max-results {
@@ -64,7 +64,8 @@ label {
 #js-similar-movies-list {
     text-decoration: none;
     list-style: none;
-    background-color: red;
+    background-color: rgba(0, 0, 0, .5);
+    /* background-color: red; */
     color: white;
     font-family: 'Raleway', sans-serif;
     /* font-family: 'Lato', sans-serif; */
@@ -76,6 +77,8 @@ label {
     /* background-color: darkslategray; */
     background-color: black;
     color: white;
+    height: 200px;
+    width: 200px;
 }
 input {
     border: 5px, solid, red;
@@ -98,9 +101,13 @@ header, h1, h2, div {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5px 15px;
 }
 aside {
     font-size: 20px;
+}
+article {
+    padding: 15px 5px;
 }
 p {
     /* font-family: 'Playfair Display SC', serif; */
@@ -180,12 +187,12 @@ select:focus, button:focus {
 /* ************************ LAPTOP   *******************************/
 @media only screen and (min-width: 600px) {
     #home-search-screen {
-        /* display: flex; */
+        display: flex;
         flex-flow: row nowrap;
         justify-content: center;
     
     }
-    #multi-movie-search, #single-movie-search {
+    #multi-movie-search, #single-movie-search, #js-one-movie-results {
         flex-flow: row nowrap;
     }
     #search-error-message {
@@ -203,21 +210,20 @@ select:focus, button:focus {
         flex-shrink: 2;
     }
     
-
     #credits {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
         flex-wrap: nowrap;
         font-size: 10px;
+        width: 100px;
         
     
         
     }
     #tmdb-credit {
-        /* flex-shrink: 3;
-        flex-grow: 0;
-        flex-basis: 5%; */
+        flex: 0 3 5%;
+        justify-content: flex-end;
     }
     #tmdb-logo {
         
@@ -229,7 +235,7 @@ select:focus, button:focus {
 
 }
 /* ************************ DESKTOP   *******************************/
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 900px) {
     fieldset {
         display: flex;
         flex-direction: row;
