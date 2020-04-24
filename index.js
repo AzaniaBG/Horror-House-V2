@@ -169,7 +169,7 @@ console.log(responseJson["Genre"])
         if(movies.includes("undefined || 0")) {
             handleErrorMessage(`Curses! No movie found.`);
         } else {
-            let biggestResults = (movies.length > maxResults)?maxResults:movies.length;
+            let biggestResults = (movies.length > maxResults)? maxResults : movies.length;
             for(let i = 0; i < biggestResults; i++) {
                 let movieAndDate = `<li class="results">${movies[i]} - Released: ${releaseDate[i]}</li><br>`;
                 $("ul").append(movieAndDate);         
@@ -219,6 +219,7 @@ function handleMultiSearchSubmit() {
 console.log(`error is ${error}`)
         // let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
+            $("#js-one-movie-results").hide();
             $("#credits").hide();
             $("#search-error-message").text(error); 
             $("#error-messages").show();

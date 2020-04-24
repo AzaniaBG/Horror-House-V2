@@ -38,8 +38,8 @@ label {
 }
 #multi-movie-search, #single-movie-search {
     display: flex;
+    justify-content: center;
     flex-flow: column wrap;  
-    /* background-color: darkred; */
     background-color: rgba(0, 0, 0, .5);
     width: 25%;
     color: white;
