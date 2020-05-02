@@ -13,14 +13,19 @@ h1, h2 {
 }
 label {
     font-family: 'Raleway', sans-serif;
-    /* font-family: 'Lato', sans-serif; */
     padding: 10px 10px 20px;
-    /* -webkit-text-stroke: .5px black;
-    -webkit-text-fill-color: white; */
 }
 form {
     margin-top: 50px;
+    padding: 25px 0;
 }
+body, form {
+    background-color: #7c0202;
+}
+header {
+    margin-top: 175px;
+}
+
 #js-max-results {
     padding: 20px 5px;
 }
@@ -61,7 +66,6 @@ form {
     font-family: 'Raleway', sans-serif;
     padding: 10px 10px;
     margin: 15px auto;
-    
 }
 #one-movie-description {
     background-color: black;
@@ -117,36 +121,20 @@ select:focus, button:focus {
     outline: none;
     border: 1px solid red;
 }
-#js-single-movie-search-submit {
-    /* text-align: center; */
-     
-}
 .hidden {
     display: none;
 }
 /* ************************ MAIN SCREEN ****************************** */
 
-
-#js-one-movie-results, #js-similar-movie-results {
-    
-}
 /* ************************ SEARCH ONE MOVIE SCREEN *******************************/
-#js-one-movie-results {
-    /* display: inline-block */
-}
 
 /* ************************ SEARCH SIMILAR MOVIES SCREEN    *******************************/
-#js-similar-movie-results {
-    /* display: inline-block */
-}
-
-
 
 #error-messages, #search-error-message {
     color: red;
 }
-/* ************************ BREAKPOINTS   *******************************/
-/* ************************ MOBILE   *******************************/
+/* ************************ BREAKPOINTS *******************************/
+/* ************************ MOBILE ***********************************/
 @media only screen and (max-width: 420px) {
     aside {
         flex-wrap: wrap;
@@ -160,7 +148,7 @@ select:focus, button:focus {
 
 }
 /* ************************ TABLET   *******************************/
-@media only screen and (min-width: 420px) {
+@media only screen and (max-width: 500px) {
     aside {
         flex-wrap: wrap;
         width: 75%;
@@ -168,7 +156,6 @@ select:focus, button:focus {
         justify-content: space-evenly;
         flex-shrink: 2;
     }
-
 }
 /* ************************ LAPTOP   *******************************/
 @media only screen and (min-width: 500px) {
@@ -195,9 +182,6 @@ select:focus, button:focus {
         justify-content: space-evenly;
         flex-shrink: 2;
     }
-    form {
-        margin-top: 200px;
-    }
     #credits {
         display: flex;
         flex-direction: row;
@@ -213,23 +197,15 @@ select:focus, button:focus {
         flex: 0 3 5%;
         justify-content: flex-end;
     }
-    #tmdb-logo {
-        
-        /* width: 25px;
-        height: 25px;
-        flex-shrink: 0; */
-        
-    }
-
+    
 }
-/* ************************ DESKTOP   *******************************/
+/* ************************ DESKTOP *******************************/
 @media only screen and (min-width: 900px) {
     fieldset {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-
     }
     
     aside {
