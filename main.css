@@ -72,14 +72,14 @@ header {
     width: 200px;
 }
 input {
-    border: 5px, solid, red;
+    border: 5px, solid, #941b0c;
 }
 input[type=text] {
     border: 1px solid black;  
 }
 input[type=text]:focus {
     outline: none;
-    border: 1px solid red;  
+    border: 1px solid #941b0c;  
 }
 header, h1, h2, div {
     font-family: 'Cinzel', serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -110,14 +110,14 @@ button {
 }
 button:hover {
     color: white;
-    background-color: red;
+    background-color: #941b0c;
 }
 select {
     margin: auto;
 }
 select:focus, button:focus {
     outline: none;
-    border: 1px solid red;
+    border: 1px solid #941b0c;
 }
 .hidden {
     display: none;
@@ -129,7 +129,7 @@ select:focus, button:focus {
 /* ************************ SEARCH SIMILAR MOVIES SCREEN    *******************************/
 
 #error-messages, #search-error-message {
-    color: red;
+    color: #941b0c;
 }
 /* ************************ BREAKPOINTS *******************************/
 /* ************************ MOBILE ***********************************/
@@ -146,7 +146,7 @@ select:focus, button:focus {
 
 }
 /* ************************ TABLET   *******************************/
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
     aside {
         flex-wrap: wrap;
         width: 75%;
