@@ -96,7 +96,8 @@ header, h1, h2, div {
     font-family: 'Cinzel', serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
 }
-#js-one-movie-results, #js-similar-movie-results, #one-movie-description {
+#js-one-movie-results, #js-similar-movie-results, 
+#one-movie-description {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,6 +171,9 @@ select:focus, button:focus {
         width: 75%;
         justify-content: space-around;
         justify-content: space-evenly;
+    }
+    #home-search-screen {
+        align-items: center;
     }
 
 }
