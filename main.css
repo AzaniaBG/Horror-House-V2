@@ -10,8 +10,7 @@
 } */
 body {
     background-image: url(./images/amityville2.jpg);
-    background-repeat: none;
-    background-position: stretch;
+    background-repeat: no-repeat;
     background-size: 100%;
     box-sizing: border-box;
 }
