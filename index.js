@@ -51,29 +51,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             });
     }
 
-    // function  getDetailsWithId(id) {
-    //     const params = {
-    //         apikey: omdbKey,
-    //         i: id,
-    //     }
-    //     let queryIdString = formatOmdbQueryParams(params);
-    //     let omdbIdSearchURL = `https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?` + queryIdString;
-    //     fetch(omdbIdSearchURL).then(response => {
-    //         if(response.ok) {
-    //             return response.json();
-    //         } throw new Error("Oh the HORROR! Something went wrong :(")
-    //         })
-    //             .then(responseJson => {
-    //                 
-    //                 let genreIds = responseJson.results.map(result => result["genre_ids"])
-    //                 
-    //             })
-    //             .catch(err => {
-    //                 handleErrorMessage(`Curses! Something has died.`, err);
-    //             });
-
-    // }
-    function getYtId(imdbID) {
+        function getYtId(imdbID) {
                 const params = {
                 api_key: tmdbKey,
                 language: "en-US",
@@ -109,8 +87,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
                 let results = responseJson.results;
-//
-//const genreIds = results[0].genre_ids; //.map(result => result.genre_ids)
+
                 if(responseJson.results.length === 0) {
                     handleUndefined();
                 } else {             
@@ -121,16 +98,11 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                 //for each result, display the title per the displaySimilarMovies function in a list item
                 displaySimilarMovies(titles, releaseDate, maxResults)   
                 }         
-            }).catch(err => {
-
-                $("#search-error-message")
-                });
+            }).catch(err => $("#search-error-message"));
     }
 
     function parseMovieInfo(responseJson, query) {
-
-
-        
+     
         let movieTitle = responseJson["Title"];
         let movieYear = responseJson["Year"];
         let moviePlot = responseJson["Plot"];
@@ -142,10 +114,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
         } else {
             let error = "CURSES! No horror movies found"
             handleErrorMessage(error);
-        }
-        //  
-        //getYtId(imdbID);
-        //getDetailsWithId(imdbID);       
+        }    
 }
 
 //display information related to search results for one movie
@@ -187,7 +156,6 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
             $("#js-single-movie-search").val("");
             $("#multi-movie-search").hide();
             $("#single-search-screen-header").show();
-            // $("#results-screen").show();
             $("#js-one-movie-results").show();
         })
     }
@@ -205,9 +173,6 @@ function handleMultiSearchSubmit() {
         $("#js-max-results").val(3);
         $("#main-screen-header").hide();
         $("#multi-search-screen-header").show();
-        // $("#search-screen-headers").show();
-        // $("#single-search-screen-header").show();
-        // $("#results-screen").show();
         $("#js-similar-movie-results").show();
         $("#js-similar-movies-list").show();
 
@@ -216,8 +181,6 @@ function handleMultiSearchSubmit() {
 }
 
     function handleErrorMessage(error) {
-
-        // let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
             $("#js-one-movie-results").hide();
             $("#credits").hide();
