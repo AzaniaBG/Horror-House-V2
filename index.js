@@ -45,7 +45,7 @@ const YouTubeURL = "https://www.googleapis.com/youtube/v3/"
                }
                 parseMovieInfo(responseJson, query);               
             }).catch((err) => {
-console.log("err is", err);
+
                 let errorMessage = `Oh the HORROR! ${err} Please check your search...or else.`
                 handleErrorMessage(errorMessage);
             });
@@ -64,9 +64,9 @@ console.log("err is", err);
     //         } throw new Error("Oh the HORROR! Something went wrong :(")
     //         })
     //             .then(responseJson => {
-    //                 console.log(`responseJson from getDetailsWithId:`, responseJson)
+    //                 
     //                 let genreIds = responseJson.results.map(result => result["genre_ids"])
-    //                 console.log(genreIds);
+    //                 
     //             })
     //             .catch(err => {
     //                 handleErrorMessage(`Curses! Something has died.`, err);
@@ -82,7 +82,7 @@ console.log("err is", err);
             const queryString = formatTmdbQueryParams(params);
             const videoURL = tmdbSearchURL + `${imdbID}/videos?` + queryString;
             fetch(videoURL).then(response => response.json()).then(responseJson => {
-console.log(`responseJson from getYTId is`, responseJson)
+
                 let videos = responseJson.results;
                 let ytMatch = videos.filter(video => video["site"] === "YouTube");
                 let ytID = ytMatch[0]["key"];
@@ -109,7 +109,7 @@ console.log(`responseJson from getYTId is`, responseJson)
                 } throw new Error("Oh the HORROR! Something went wrong :(")
             }).then(responseJson => { 
                 let results = responseJson.results;
-//console.log(`responseJson is:`, responseJson);
+//
 //const genreIds = results[0].genre_ids; //.map(result => result.genre_ids)
                 if(responseJson.results.length === 0) {
                     handleUndefined();
@@ -122,14 +122,14 @@ console.log(`responseJson from getYTId is`, responseJson)
                 displaySimilarMovies(titles, releaseDate, maxResults)   
                 }         
             }).catch(err => {
-console.log(`err is ${err}`)
+
                 $("#search-error-message")
                 });
     }
 
     function parseMovieInfo(responseJson, query) {
-console.log(`parseMoveInfo Genres is:`)
-console.log(responseJson["Genre"])
+
+
         
         let movieTitle = responseJson["Title"];
         let movieYear = responseJson["Year"];
@@ -143,7 +143,7 @@ console.log(responseJson["Genre"])
             let error = "CURSES! No horror movies found"
             handleErrorMessage(error);
         }
-        //  console.log("no horror movies");
+        //  
         //getYtId(imdbID);
         //getDetailsWithId(imdbID);       
 }
@@ -216,7 +216,7 @@ function handleMultiSearchSubmit() {
 }
 
     function handleErrorMessage(error) {
-console.log(`error is ${error}`)
+
         // let errorMessage = `Oh the HORROR! ${error} Please check your search...or else.`;
             $("#main-screen-header").hide();
             $("#js-one-movie-results").hide();
