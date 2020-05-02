@@ -19,9 +19,7 @@ form {
     margin-top: 50px;
     padding: 25px 0;
 }
-body, form {
-    background-color: #7c0202;
-}
+
 header {
     margin-top: 175px;
 }
@@ -156,6 +154,9 @@ select:focus, button:focus {
         justify-content: space-evenly;
         flex-shrink: 2;
     }
+    body, form {
+        background-color: #7c0202;
+    }
 }
 /* ************************ LAPTOP   *******************************/
 @media only screen and (min-width: 500px) {
@@ -197,7 +198,9 @@ select:focus, button:focus {
         flex: 0 3 5%;
         justify-content: flex-end;
     }
-    
+    form {
+        margin-top: 50px;
+    }
 }
 /* ************************ DESKTOP *******************************/
 @media only screen and (min-width: 900px) {
@@ -215,5 +218,9 @@ select:focus, button:focus {
         justify-content: space-evenly;
         flex-shrink: 2;
     }
-
+    header {
+        margin-top: 25px;
+        margin-bottom: 200px;
+    }
+    
 }
