@@ -158,6 +158,13 @@ select:focus, button:focus {
         background-color: #7c0202;
     }
 }
+@media screen and (max-width: 990px) 
+and (min-width: 500px), (min-width: 500px)  {
+    body {
+        background-color: #7c0202;
+
+    }
+}
 /* ************************ LAPTOP   *******************************/
 @media only screen and (min-width: 500px) {
     #home-search-screen {
